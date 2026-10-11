@@ -24,7 +24,20 @@ Aktif di elharamainwisata.com, elharamainhaji.com, elharamain.id: `GET/POST /wp-
 `get-post-schema`, `get-post-seo-meta`. Endpoint REST lama `rankmath/v1/updateMeta` (`{"objectType":"post","objectID":N,"meta":{"rank_math_title":...,"rank_math_description":...,"rank_math_robots":[...]}}`)
 masih jalan untuk meta per-post kalau ability belum cukup; `rankmath/v1/updateSettings` **selalu 403** lewat Application Password (butuh sesi login).
 
-### haji.biz — auth REST bermasalah, JANGAN pasang snippet WPCode lagi tanpa investigasi
+### Status akses otomatis (tes 30 Sep 2026)
+| Situs | Login REST | Template UAE via REST |
+|---|---|---|
+| elharamainwisata.com | OK | OK (snippet lama) |
+| elharamainhaji.com | OK (env `ELHARAMAINHAJI_USER`) | OK (snippet `wpcode-uae-rest.php`) |
+| elharamain.id | OK (username `elharamain`, administrator) | OK (snippet) |
+| haji.biz | **OK tanpa snippet** (sekarang jalan) | OK (snippet) |
+
+Hosting kadang membalas halaman HTML "reload 5 detik" (anti-bot) untuk request ber-login; cukup ulangi
+beberapa detik kemudian (`tools/deploy_uae.py` sudah otomatis mengulang). Setelah snippet terpasang:
+`python3 tools/deploy_uae.py hajibiz header wordpress/uae/haji-biz-header.html`.
+
+### haji.biz — auth REST bermasalah (catatan lama), JANGAN pasang snippet penambal LOGIN lagi
+Snippet `wpcode-uae-rest.php` aman karena tidak menyentuh proses login.
 Server haji.biz meneruskan header `Authorization` tapi PHP tidak memecahnya jadi `PHP_AUTH_USER`/`PHP_AUTH_PW` (beda
 dari elharamainwisata.com). Snippet WPCode penambal sempat dipasang (urai manual dari `HTTP_AUTHORIZATION`), tapi
 begitu berhasil mengisi `PHP_AUTH_USER`, malah memicu proses lain di situs mencoba login normal dengan nilai itu
@@ -40,8 +53,9 @@ Template halaman: `elementor_canvas` (landing page, tanpa header/footer tema).
 |---|---|---|---|
 | elharamainwisata.com | 9733 | Paket Umroh Musim Dingin Desember 2026 | draft |
 | elharamainwisata.com | 9735 | Panduan Lengkap Haji Plus 1448H | draft |
-| elharamainhaji.com | 3509 | Panduan Lengkap Haji Plus 1448H | draft, robots di-override `index` (post type "post" di-noindex massal, lihat bawah) |
-| elharamain.id | 801 | Paket Umroh Musim Dingin Desember 2026 | draft |
+| elharamainhaji.com | 3509 | Panduan Lengkap Haji Plus 1448H | **terbit 30 Sep**, template elementor_header_footer, robots `index` |
+| elharamain.id | 801 | Paket Umroh Musim Dingin Desember 2026 | **terbit 30 Sep**, template elementor_header_footer |
+| elharamain.id | 832 | Umroh Januari 2027 (dari brosur) | **terbit 30 Sep** |
 
 ### elharamainhaji.com — 1.376 post spam terdeteksi & di-noindex (30 Sep 2026)
 Post type "post" berisi 1.376 halaman auto-generate 1/kabupaten-kota se-Indonesia (judul diawali nomor WA,
