@@ -1,0 +1,122 @@
+# Catatan sesi 2026-09-30
+
+## Yang dibahas
+- Claude tidak ingat sesi VS Code; konteks dibaca ulang dari README dan commit terakhir (24 Sep).
+- Struktur 4 domain ditetapkan (lihat CLAUDE.md).
+- "UAE" = Ultimate Addons for Elementor (gratis, slug `header-footer-elementor`).
+
+## Yang dikerjakan
+- Plugin UAE diaktifkan di haji.biz (sudah terpasang, belum aktif). Sudah ada di elharamain.id dan elharamainhaji.com.
+- Dibuat `CLAUDE.md` + PR #1 ke `main`.
+
+## Temuan
+- Konektor MCP `Elharamainhaji` dan `Elharamain_id` belum diotorisasi.
+- Default branch repo adalah `claude/admiring-curie-k3qpc9`, bukan `main` (perlu diubah di Settings → Branches).
+- Tool MCP tidak menjangkau post type `elementor-hf` (header/footer UAE).
+
+## Lanjutan
+Lihat bagian "Status & tugas" di CLAUDE.md.
+
+## Header/footer haji.biz
+- Draf HTML di `wordpress/uae/haji-biz-header.html` & `-footer.html`, memakai token brand dari tools/build_header.py (belum dipasang).
+- Akses web ke haji.biz & elharamain.id diblokir egress; info brand ternyata sudah ada di branch main (README + tools/). Pelajaran: selalu `git merge origin/main` di awal sesi.
+
+## Lanjutan sesi (sore)
+- Konektor `Elharamainhaji` & `Elharamain_id` kini tersambung.
+- Audit Rank Math (baca saja): elharamainhaji.com 78/100 — 59 post + 12 halaman tanpa focus keyword, Search Console
+  belum ditautkan. elharamain.id 80/100 — meta description beranda 170 karakter (>160), 42 gambar tanpa alt,
+  og:image beranda kosong, locale OG `en_US`, GSC belum ditautkan.
+- Header/footer haji.biz diperbarui: menu hamburger CSS-only untuk HP, tambah Haji Plus 2027 & Tentang Kami,
+  footer link WhatsApp `tel:` → wa.me, tautan halaman lengkap. Semua slug dicek ke haji.biz. Dites di Chromium
+  (1366 px & 390 px). Panduan tempel: `wordpress/uae/README.md`.
+- `elementor/build-composition` di haji.biz butuh Atomic Editor (mati) → tetap tempel manual.
+- Keputusan pemilik: haji.biz tidak perlu halaman/link umroh → link "Umroh Desember 2026" dihapus dari header & footer.
+- Pemilik ingin semua otomatis. Tes: login REST OK di elharamainwisata.com, elharamainhaji.com, haji.biz (haji.biz kini jalan);
+  elharamain.id 401 karena env `ELHARAMAINID_WP_USER` kosong. Template UAE hanya terbuka di REST elharamainwisata.com.
+  Dibuat snippet `wordpress/wpcode-uae-rest.php` (endpoint `eh/v1/hf`, admin saja, tidak mengubah login) + `tools/deploy_uae.py`.
+- elharamain.id: username REST = `elharamain` (administrator), login OK. Cloudflare memblokir UA Python (1010) dan nginx elharamainhaji.com memblokir UA custom (403) → `deploy_uae.py` pakai UA `curl/8.5.0`. Ketiga situs menjawab 404 `rest_no_route` = snippet `wpcode-uae-rest.php` belum dipasang.
+- Snippet `wpcode-uae-rest.php` terpasang & jalan di haji.biz, elharamainhaji.com, elharamain.id (endpoint `eh/v1/hf` OK).
+- Template UAE yang ada (cadangan di `backup/uae/`): haji.biz Header 423 (site-logo + navigation-menu) & Footer 419
+  (desain Elementor lengkap) — aktif seluruh situs. elharamainhaji.com 3512/3514 & elharamain.id 805/807 **kosong**
+  (tanpa isi, tanpa lokasi tampil) → situs itu masih memakai header/footer tema.
+
+## Header/footer & halaman info LIVE (30 Sep, atas perintah pemilik "buatkan semua dan langsung publish")
+- Menu (arahan pemilik): Home, Paket (dropdown), Tentang Kami, Lokasi Kantor + tombol WA. Generator: `tools/build_uae_sites.py`
+  → `wordpress/uae/<situs>-header/footer.html`, dipasang via `tools/deploy_uae.py` ke template UAE: haji.biz 423/419
+  (desain lama ditimpa, cadangan `backup/uae/`), elharamainhaji.com 3512/3514, elharamain.id 805/807 (sebelumnya kosong).
+- Halaman baru (publish, template page_landingpress.php): Lokasi Kantor di 3 situs (haji.biz 793, elharamainhaji 5051,
+  elharamain.id 822; data 6 kantor dari pemilik = OFFICES di build_footer.py) dan Tentang Kami di elharamainhaji (5053) &
+  elharamain.id (824). Isi Tentang Kami dari brosur PDF (`data/brosur/`) atas arahan pemilik. Generator: `tools/build_info_pages.py`.
+- haji.biz: tanpa kata umroh di header/footer/halaman Lokasi Kantor (izin umrah juga tidak dicantumkan di sana).
+- Logo putih diunggah ke media tiap situs (`/wp-content/uploads/2026/09/logo-elharamain-putih.webp`).
+- Temuan teknis: Cloudflare/WAF memblokir klien Python (UA & TLS) → helper REST memakai curl. UAE mencetak judul
+  tersembunyi `.bhf-hidden` yang CSS-nya hilang (LiteSpeed) → disembunyikan di CSS header. Hosting kadang membalas
+  halaman anti-bot "reload" → helper mengulang otomatis.
+- Catatan: halaman ber-template `elementor_canvas` (mis. beranda elharamainhaji.com, halaman paket umroh elharamain.id)
+  memang tidak menampilkan header/footer UAE (landing page).
+- Masih terbit di haji.biz: 2 halaman umroh (ID 778 Umroh Desember 2026, ID 135 Umroh Saudia Landing Jeddah) — menunggu
+  keputusan pemilik (draft/redirect).
+- Pemilik: "elharamainhaji belum ada header footer" → penyebab: beranda (ID 347) template `elementor_canvas`. Diganti ke
+  `page_landingpress.php` via MCP `elementor/update-page-settings` (REST POST ke halaman itu diblok WAF 403). Beranda
+  tidak punya header sendiri di kontennya, jadi aman. Kembalikan: set template ke `elementor_canvas`.
+- Halaman bertemplate default menampilkan header/footer tema LandingPress + UAE (dobel) → CSS di template UAE
+  menyembunyikan `#masthead.site-header` & `#colophon.site-footer` saat body punya `ehf-header`/`ehf-footer`.
+- Verifikasi pakai Playwright (browser lolos anti-bot; curl sering kena halaman challenge).
+
+## Paket beranda sesuai PDF + halaman Blog (30 Sep, perintah pemilik)
+- elharamain.id beranda (309): section 13f678b4 (6 kartu gambar paket 2025) diganti widget HTML
+  `landing-pages/section-harga-paket-umroh.html` (17 paket Nov 2026–Jan 2027 dari brosur, tab bulan CSS).
+  Gambar kartu dari Cloudinary (aktif; hanya diblok proxy sandbox).
+- elharamainhaji.com beranda (347): section 79cd5f17 "4 Paket Haji" dikoreksi sesuai brosur Haji 1448 H (data dari
+  draft artikel 9735/3509): harga ber-4/3/2, durasi 22–23 hari (Arbain 27–28), Platinum Saudia/Garuda & maktab 111,
+  catatan estimasi + Dana Manfaat. Link BROSUR-HAJI-1447-H.pdf rusak → tombol "Minta Brosur via WhatsApp".
+  Ikon baris dipetakan dari ikon asli; kartu Platinum urutannya disamakan. Script: `tools/update_home_paket.py`.
+  Cadangan: `backup/pages/*-elementor-data-2026-09-30.json`.
+- Blog: haji.biz dibuat halaman Blog (ID 798) + disetel sebagai halaman pos (page_for_posts); elharamain.id (23) &
+  elharamainhaji.com (39) sudah ada. Menu "Blog" ditambahkan di header & footer 3 situs.
+- Menu tema LandingPress (`#site-navigation`) disembunyikan di halaman arsip saat UAE aktif.
+- Temuan: haji.biz masih punya 2 artikel umroh terbit (ID 293, 263) & kategori "Haji & Umroh" → tunggu keputusan pemilik.
+  elharamainhaji.com belum punya artikel terbit (Blog tampil "Nothing Found").
+- Pelajaran: WAF hosting kadang 403 untuk POST sesaat; balasan WP kadang diawali teks sebelum JSON; endpoint cache
+  Elementor membalas 200 kosong → sudah ditangani di `rest()`. Setiap deploy UAE memanggil purge-all LiteSpeed,
+  jadi halaman sempat tampil tanpa CSS sampai UCSS dibuat ulang.
+- Keputusan pemilik: artikel di haji.biz boleh campur haji & umroh → artikel ID 293, 263 & kategori "Haji & Umroh" dibiarkan.
+
+## Artikel pertama (30 Sep) — Draft
+- HIMPUH, news.elharamainwisata.com, kemenag.go.id, wikipedia **diblok egress environment** (curl & WebFetch). Minta
+  pemilik tambahkan domain di Network access environment bila ingin sumber luar.
+- Dibuat draft elharamain.id **ID 832** "Umroh Januari 2027: Jadwal, Harga & Pilihan Paket Musim Dingin" (slug
+  umroh-januari-2027, kategori "Paket Umroh 2026") dari brosur resmi Januari 2027: tabel 6 paket, bonus, hotel & jarak,
+  itinerary 12 hari, fasilitas, perlengkapan, pembimbing, syarat, FAQ. Gambar Cloudinary (Header/12, desain Januari,
+  perlengkapan). SEO Rank Math diisi via `/rankmath/v1/updateMeta` (focus keyword "umroh januari 2027").
+  Generator: `tools/build_artikel_umroh_januari.py [--save]`.
+- Pemilik: "publish semua" → diterbitkan: elharamain.id 832 (umroh-januari-2027) & 801 (paket-umroh-musim-dingin-desember-2026-…),
+  elharamainhaji.com 3509 (panduan-lengkap-haji-plus-1448h-…; robots index). 801 & 3509 template canvas → diganti
+  `elementor_header_footer` supaya header/footer UAE tampil. Draft elharamainwisata.com (9733, 9735) TIDAK disentuh
+  (aturan situs utama). Draft halaman lain (elharamain.id 809/811/814/815, elharamainhaji 3516) belum diterbitkan.
+
+## 70 artikel terjadwal 1–7 Oktober 2026 (perintah pemilik: 5/hari x 7 hari, SEO kuat; haji.biz juga 5/hari)
+- elharamain.id: 35 artikel umroh (jam WIB 06, 09, 12, 15, 19). haji.biz: 23 haji plus + 12 umroh (jam WIB 07, 10, 13, 16, 20).
+  Semua status `future`, jam terbit terverifikasi di WP. Daftar & ID: `data/jadwal-artikel-2026-10.json`.
+- Fakta hanya dari brosur (`tools/artikel_mingguan/data.py`); tiap artikel: focus keyword unik (tak bersaing dgn artikel lama),
+  keyword di judul/slug/intro/meta/alt, daftar isi, tabel, FAQ + schema FAQPage JSON-LD, link internal (artikel sebelumnya +
+  halaman kantor), link Kemenag, CTA WA, og:image (Cloudinary / foto haji.biz). SEO Rank Math via `/rankmath/v1/updateMeta`.
+  Artikel haji di haji.biz memakai featured image (media 751–756); artikel elharamain.id belum punya featured image.
+- Panjang 341–747 kata (rata-rata ±490) — sengaja tidak ditambah filler/fakta di luar brosur.
+- Generator: `tools/artikel_mingguan/` (data, render, umroh_id, haji_biz, extra, extra2, publish). Jalankan ulang:
+  `python3 tools/artikel_mingguan/publish.py --publish [--site=elharamainid|hajibiz]` (resumable; lewati yang sudah `future`).
+- Pelajaran: hosting punya pembatas laju (openresty): request rapat → halaman "reload" / 403 IP-ban ±5–10 menit
+  (elharamain.id paling sensitif). Beri jeda 20–30 detik per artikel; helper `rest()` kini backoff 10→120 detik.
+
+## Audit indexing haji.biz ("index seret")
+- **Utama:** haji.biz TIDAK di belakang Cloudflare (server LiteSpeed langsung; 3 situs lain lewat Cloudflare). Front-server
+  hosting (openresty) sering membalas halaman anti-bot "reload 5 detik" (HTTP 200 text/html) — juga untuk UA Googlebot dan
+  untuk robots.txt, sitemap, artikel (tes: ±25–50% request). Googlebot tidak menjalankan reload → bisa dapat halaman kosong
+  (robots/sitemap gagal dibaca, artikel dianggap duplikat/soft 404). Perlu cek GSC (URL Inspection live, Crawl stats) &
+  minta hosting whitelist crawler / matikan anti-bot, atau pindahkan DNS haji.biz ke Cloudflare seperti situs lain.
+- Sitemap memuat `elementor-hf-sitemap.xml` (URL /elementor-hf/header/ & /footer/) → sampah; perlu dikeluarkan/noindex.
+- 16 kategori tipis (1 post, nama = keyword post) di category-sitemap → arsip tipis yang bersaing dengan post-nya.
+- Banyak post mirip (haji-plus-termurah vs travel-haji-plus-termurah, per-kota) & tumpang tindih dengan elharamain.id /
+  elharamainhaji.com → Google bisa memilih tidak mengindeks.
+- 2 halaman umroh (778, 135) masih di page-sitemap. Rank Math: GSC "ditautkan" tapi modul Analytics `connected:false`.
+- Audit Rank Math 83/100; robots.txt & meta robots normal (index, follow).

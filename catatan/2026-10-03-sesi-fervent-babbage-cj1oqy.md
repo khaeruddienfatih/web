@@ -1,0 +1,67 @@
+# Catatan sesi 2026-10-03
+
+## Yang dibahas
+- "lanjut": konektor MCP `Elharamain_id` & `Elharamainhaji` ternyata sudah tersambung (sebelumnya belum diotorisasi).
+- Pemilik mengirim 2 brosur PDF dan minta "simpan pdf ini dan update di web". Bagian web dikerjakan dengan model Opus (permintaan pemilik).
+
+## Isi brosur
+- **Riyadh Air November 2026** (update 29/09/2026): Bronze 37/40/43 jt (Makkah Anjum/Prestige, Madinah Al-Aqeeq — dulu
+  Peninsula/Al-Aqeeq), **baru: Gold** 46/49/52 jt (Marwa Rotana/Movenpick, Al-Aqeeq, 2x kereta cepat). Berangkat 26 Nov,
+  jadwal penerbangan RX870/RX027/RX018/RX869. Typo brosur "40.00.000"/"49.00.000" dibaca 40 jt/49 jt.
+- **Ramadhan 1448 H, Februari 2027** (update 01/10/2026), Saudia JED-JED: Bronze 9H 39,5/41,5/43,5 jt (Al Shohada ★5 /
+  Royal Andalus ★4; 8, 14, 15 Feb), Platinum 9H 56/59/63 (Marwa Rotana / Al-Aqeeq; 14, 21 Feb), Premium 9H 60/64/68
+  (Fairmont / Al-Aqeeq; 14 Feb), I'tikaf Silver 17H 71/80/97 (Royal Majestic ★4 / Al-Aqeeq; 28 Feb).
+
+## Yang dikerjakan (elharamainwisata.com, live)
+- PDF diunggah ke Media WP (id 9747, 9748) dan disimpan di `data/brosur/`.
+- 5 foto rombongan dari brosur → Cloudinary `kartu-paket-23…27` (lewat Media WP id 9749–9753, karena Cloudinary diblokir proxy).
+- Kartu harga (12 halaman: 9581, 8869, 8896, 8908, 8909, 8910, 9584–9589): Bronze Nov → Al-Aqeeq, + kartu Gold November,
+  + tab "Ramadhan" (4 paket; di halaman tier, paket tier itu paling depan).
+- Section periode 9581: link PDF November baru, + Gold, + periode "Ramadhan 1448 H" dengan tombol unduh PDF.
+- Schema JSON-LD: + TouristTrip baru (sesuai tier halaman), deskripsi Bronze Nov diperbaiki, FAQ jadwal (schema + teks tampil) + tanggal Ramadhan.
+- Cache Elementor dihapus & diisi ulang; dicek publik: semua 12 halaman memuat kartu baru, JSON-LD valid.
+
+## Temuan / pelajaran
+- Hosting kadang membalas halaman anti-bot "One moment, please..." ke halaman publik maupun REST → retry setelah ±20 dtk.
+- Builder repo (`build-section-harga.js`, `build_musim_dingin.py`, `build_pages.py`) masih belum memuat edit live; patch dilakukan
+  langsung ke HTML live (`tools/update_paket_2026_10.py`).
+
+## Lanjutan
+- SEO title/description 9581 belum menyebut Ramadhan; tab "Semua" belum menampilkan paket Ramadhan (sengaja tidak diubah).
+- Pertimbangkan halaman/artikel khusus "Paket Umroh Ramadhan 2027" (elharamainwisata.com / elharamain.id) — tunggu persetujuan pemilik.
+
+## Lanjutan sesi: bagian "Fasilitas Elharamain Wisata" (9581)
+- Permintaan pemilik: ganti bagian Fasilitas di /paket-umroh-musim-dingin/ dan masukkan semua hotel + bus.
+- Carousel lama (7 slide 2025: bus, Swissotel, Marwa Rotana, Anjum, Al-Aqeeq, Taiba Front, Taiba) diganti widget HTML
+  bertab: **Hotel Makkah (7)** Anjum, Prestige, Marwa Rotana, Movenpick Hajar, Fairmont, Al Shohada, Royal Majestic ★4;
+  **Hotel Madinah (4)** Al-Aqeeq, Peninsula Worth, Movenpick Madinah, Royal Andalus ★4; **Bus** (foto dari slide bus lama).
+  Tiap kartu: bintang, jarak (dari brosur), paket yang memakai hotel itu.
+- Foto: 3 foto per hotel dari halaman "Fasilitas Hotel" di 5 brosur PDF (PyMuPDF), digabung 1000×520, diunggah ke Media WP
+  (id 9754–9766) lalu Cloudinary `Elharamainwisata/Fasilitas`.
+- Swissotel & Taiba (ada di carousel lama) tidak dimasukkan karena tidak dipakai paket mana pun di brosur saat ini.
+- Hotel "Al-Haram" Madinah (alternatif Al-Aqeeq di Platinum Desember) belum ada fotonya di brosur, jadi tidak dimasukkan.
+- Revisi atas permintaan pemilik ("slider saja"): tab diganti **slider** 12 kartu (7 Makkah → 4 Madinah → bus), 2 kartu
+  per tampilan di desktop, 1 kartu + intip di HP, panah + titik + autoplay 4 dtk (JS kecil dengan atribut no-optimize
+  LiteSpeed, pola sama dengan pembimbing-slider). Dicek dengan HTML live: init jalan, 12 slide, 11 titik, tombol next menggeser.
+
+## Lanjutan: "terapkan di semua page dan situs"
+- Slider fasilitas hotel + bus dipasang menggantikan carousel fasilitas lama (7 slide 2025) di:
+  - elharamainwisata.com (13): 9581, beranda 7840, tier 8869/8896/8908/8909/8910, cabang 9584–9589.
+  - elharamain.id (12): beranda 309, 783 (elhrmumroh), Saudia Landing 496/480/476, Plus Turki 472 & 210, Mesir 468,
+    Dubai 464, Aqsa 439, Syawal 385, Ramadhan 351.
+  - elharamainhaji.com (4, halaman umroh): 230, 220, 210, 175.
+  - Tidak diubah: halaman haji (isinya carousel foto haji/testimoni/liputan, hotel umroh tidak relevan), Umroh Plus
+    elharamainwisata.com (tidak punya carousel lama), haji.biz (auth REST rusak).
+  - Dicek: semua halaman publik memuat slider, carousel lama hilang; slider diuji jalan di HTML live elharamain.id.
+- Teknis: REST elharamain.id/elharamainhaji.com harus lewat host www. + curl; respons elharamain.id diawali bocoran `<style>`.
+
+## Lanjutan: perbaikan tampilan
+- /paket-haji-plus-elharamain-wisata/ (8289): ruang kosong besar di bawah carousel foto haji. Penyebab: placeholder lazyload
+  GIF 1x1 dirender persegi → slider 443px padahal foto 16:9 ±250px. Ditambah CSS aspect-ratio 16:9 (widget HTML absolute).
+  Hasil ukur: carousel 443→252px, section 563→392px.
+- Judul "Apa Kata Jamaah Tentang Elharamain Wisata?" 50px → 36px (tablet 30, HP 22) di 15 halaman.
+- Skrip: `tools/fix_judul_dan_carousel.py`, backup `backup/2026-10-03/*_sebelum_judul_carousel.json`.
+- Pemilik: judul "Apa Kata Jamaah…" di /umroh-silver-12-hari/ masih besar. Penyebab: setting sudah 36px dan file
+  post-8910.css sudah baru, tapi URL CSS `?ver=1790305183` tidak berubah dan di-cache browser/Cloudflare 1 tahun → browser
+  pemilik tetap pakai CSS lama. Perbaikan: ukuran judul ditanam inline (widget HTML absolute `j<id>` berisi `<style>` !important)
+  di 15 halaman. Pelajaran ini dicatat di README (Pelajaran teknis).

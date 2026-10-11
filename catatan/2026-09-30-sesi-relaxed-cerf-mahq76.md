@@ -1,0 +1,62 @@
+# Catatan sesi 2026-09-30
+
+## Yang dibahas
+- Claude tidak ingat sesi VS Code; konteks dibaca ulang dari README dan commit terakhir (24 Sep).
+- Struktur 4 domain ditetapkan (lihat CLAUDE.md).
+- "UAE" = Ultimate Addons for Elementor (gratis, slug `header-footer-elementor`).
+
+## Yang dikerjakan
+- Plugin UAE diaktifkan di haji.biz (sudah terpasang, belum aktif). Sudah ada di elharamain.id dan elharamainhaji.com.
+- Dibuat `CLAUDE.md` + PR #1 ke `main`.
+
+## Temuan
+- Konektor MCP `Elharamainhaji` dan `Elharamain_id` belum diotorisasi.
+- Default branch repo adalah `claude/admiring-curie-k3qpc9`, bukan `main` (perlu diubah di Settings → Branches).
+- Tool MCP tidak menjangkau post type `elementor-hf` (header/footer UAE).
+
+## Lanjutan
+Lihat bagian "Status & tugas" di CLAUDE.md.
+
+## Header/footer haji.biz
+- Draf HTML di `wordpress/uae/haji-biz-header.html` & `-footer.html`, memakai token brand dari tools/build_header.py (belum dipasang).
+- Akses web ke haji.biz & elharamain.id diblokir egress; info brand ternyata sudah ada di branch main (README + tools/). Pelajaran: selalu `git merge origin/main` di awal sesi.
+
+## Lanjutan: verifikasi draf header/footer haji.biz
+- Tautan internal `/paket-haji-plus-2028-elharamain-wisata/` (post 742) dan `/umroh-desember-2026/` (post 778) dicek via Rank Math MCP haji.biz: keduanya ada dan canonical cocok. Header & footer siap ditempel manual di UAE (Display: Entire Website).
+- Langkah pemilik: UAE > Header/Footer > Add New > widget HTML > tempel isi `wordpress/uae/haji-biz-header.html` / `-footer.html`.
+
+## Footer per situs (haji.biz, elharamainhaji.com, elharamain.id)
+- Pemilik kirim screenshot footer utama sebagai acuan desain, lalu minta tiap web punya versi sendiri; jika halaman tujuan belum ada, dibuat dulu (sebagai Draft).
+- `tools/build_footer_situs.py` (memakai `tools/build_footer.py`, tidak diubah) menghasilkan `wordpress/uae/{haji-biz,elharamainhaji-com,elharamain-id}-footer.html`: desain/kantor/izin sama; CTA, deskripsi, 2 kolom tautan, dan nama di hak cipta beda per situs. Tanpa JSON-LD & CSS sembunyikan footer LandingPress.
+- Tautan hanya ke halaman yang terverifikasi ada (beranda tiap situs, 2 halaman haji.biz, halaman situs utama). Belum ada halaman baru yang dibuat; MCP elharamainhaji & elharamain.id belum diotorisasi, haji.biz REST rusak.
+- Belum dipasang; tempel manual di UAE.
+
+## Konektor MCP tersambung
+- `Elharamain_id` dan `Elharamainhaji` sudah diotorisasi pemilik dan terbaca (tool `mcp__Elharamain_id__*`, `mcp__Elharamainhaji__*`; ability sama dengan haji.biz: elementor/*, rank-math/*, marketplace/*).
+- Di kedua situs sudah ada post UAE "Header" & "Footer" (elharamain.id: 805/807; elharamainhaji.com: 3512/3514), dibuat/diubah hari ini oleh pemilik. Isinya belum diperiksa; MCP tak bisa membuat/mengedit post type `elementor-hf`, jadi footer per situs tetap ditempel manual.
+- elharamainhaji.com: post spam kabupaten masih terus dibuat (post 1823 "Haji Plus Kabupaten Kutai Kartanegara" diubah hari ini) → generator masih aktif.
+
+## Halaman paket untuk elharamain.id & elharamainhaji.com
+- 4 PDF brosur yang dikirim pemilik identik (md5) dengan `data/brosur/*.pdf`; datanya sudah ada di `data/paket-umroh.json` (17 paket, tampil di situs utama). Yang dibuat: halaman paket di situs lain.
+- `tools/build_halaman_paket.py` → `landing-pages/situs/<situs>/<slug>.html`: elharamain.id (musim dingin 2026/2027, Bronze, Silver, Platinum, Premium, Silver 12 Hari) dan elharamainhaji.com (paket-haji-plus; data dari elharamainwisata.com/paket-haji-plus, USD 12.000/15.500/17.000, estimasi 2027).
+- Konektor Elementor MCP tidak bisa menyusun isi (Atomic Editor mati di situs itu), jadi pembuatan Draft lewat `--deploy` (REST, env `ELHARAMAINID_*`/`ELHARAMAINHAJI_*`, hanya ada di komputer pemilik). Belum dijalankan; skrip tidak pernah publish.
+- Perlu konfirmasi: maskapai Bronze 26 Nov (Riyadh Air vs Saudia di brosur); beda paket USD 15.500 vs 17.000 (situs utama menampilkan hotel yang sama).
+- Keputusan pemilik: ikuti PDF. Brosur Riyadh Air Nov (8 hlm) menulis "Riyadh Air" di sampul & halaman fasilitas ("Maskapai Premium Riyadh Air"), hanya judul halaman harga yang menulis "Saudia Airlines (JED-JED)". Data Bronze 26 Nov tetap "Riyadh Air" (mayoritas isi PDF). Program 10 hari + Thaif + kereta cepat + city tour Jeddah; DP Rp 6.000.000, pelunasan 35 hari sebelum berangkat.
+- Temuan: elharamain.id sudah punya halaman publish `/paket-umroh-silver/` (234) & `/paket-umroh-platinum/` (460); elharamainhaji.com punya `/paket-haji-plus-elharamain-wisata/` (2738) & `/haji-plus/`. Keputusan pemilik: pakai halaman lama, ganti isi → slug Silver/Platinum diubah ke slug lama; deploy mencadangkan halaman lama ke `backup/situs/`. Haji Plus tetap Draft baru (belum diminta menimpa 2738).
+- Deploy pertama di komputer pemilik: hanya draft 809 (Musim Dingin) yang terbuat, lalu gagal (jawaban POST bukan JSON); penyebab menunggu output baru dari skrip.
+- Deploy berhasil (dijalankan pemilik di Windows). Penyebab error sebelumnya: server elharamain.id menyelipkan blok `<style id="elementor-post-N">` sebelum JSON REST; parser diperbaiki.
+- Hasil elharamain.id: Silver (234) & Platinum (460) publish, isi ditimpa (cadangan lama di backup/situs/elharamain-id/ di komputer pemilik); Draft baru: Musim Dingin 809, Bronze 811 (`umroh-bronze`), Premium 814, Silver 12 Hari 815. elharamainhaji.com: Draft Haji Plus 3516 (`paket-haji-plus`, halaman lama 2738 & /haji-plus/ tidak disentuh).
+- Sisa: meta description Silver/Platinum masih teks lama sampai deploy ulang (skrip kini ikut mengirim `rank_math_description`); Draft belum dicek tampilannya di browser (preview MCP butuh Atomic Editor); footer & header UAE belum ditempel; cek `backup/situs/` masuk git.
+- Koreksi gambar (permintaan pemilik, contoh: elharamainwisata.com/umroh-bronze/): kartu paket memakai foto tanpa logo `kartu-paket-NN.jpg` (Cloudinary, folder Elharamainwisata/Kartu Paket, NN = urutan di data/paket-umroh.json); foto berlogo hanya untuk header slider, jadi dipakai sebagai latar hero (`N.jpg`, folder Header). Ditambah bagian Perlengkapan (perlengkapan-pria-2026 / -wanita-2026-a). Sebelumnya kartu salah memakai foto header berlogo.
+- Permintaan pemilik: (1) Sudah/Belum Termasuk jadi tab → halaman umroh memakai widget live `landing-pages/widget/fasilitas-ketentuan-tab.html` (4 tab); (2) slider header (foto berlogo) di atas semua halaman → `landing-pages/widget/hero-slider.html`; (3) "Kenapa Elharamain Wisata?" pakai ikon dari PDF → 15 tile foto dari halaman "Umroh lebih nyaman" brosur, diunggah ke Cloudinary folder `Elharamainwisata/Fasilitas` (public_id `fasilitas-*`, 16 file termasuk maskapai Saudia & Riyadh Air; sumber di `data/ikon-fasilitas/`). Tile maskapai mengikuti maskapai paket di halaman itu.
+- Cara unggah ke Cloudinary: konektor tidak terima file lokal/base64 panjang dan sandbox diblokir ke Cloudinary → file di-push ke repo (publik) lalu diunggah dari raw.githubusercontent.com.
+- Halaman Haji Plus: slider + 8 tile fasilitas umum + daftar alasan haji; tanpa tab Termasuk (belum ada data haji di brosur).
+
+## Header & footer 3 situs
+- `tools/build_header_footer_situs.py`: header = desain header situs utama (`build_header.header_html`, dropdown & menu HP CSS-only) dengan menu statis per situs, tanpa CSS tipografi seluruh situs; footer = `build_footer_situs.py` (tautan paket kini ke halaman di situs sendiri). Hasil: `wordpress/uae/<situs>-header.html` & `-footer.html`.
+- `--deploy` (di komputer pemilik) menimpa post UAE yang sudah ada: elharamain.id Header 805/Footer 807, elharamainhaji.com Header 3512/Footer 3514; cek judul post dulu, cadangan ke `backup/situs/<situs>/`. haji.biz tetap tempel manual (REST rusak).
+- Menu elharamain.id menaut ke Draft (Musim Dingin, Bronze, Premium, Silver 12 Hari) dan elharamainhaji.com ke Draft `/paket-haji-plus/` → 404 sampai halaman itu dipublish.
+- `build_halaman_paket.py`: fungsi REST dipisah jadi `rest()` + `elementor_html()` supaya dipakai bersama.
+- Pemilik: header/footer masih blank. Dicek via MCP: post 805/807 & 3512/3514 "not built with Elementor" → deploy belum masuk. MCP tak bisa mengisi (butuh Atomic Editor). Skrip deploy kini memverifikasi `_elementor_data` tersimpan.
+- Sebab tak bisa otomatis seperti situs utama: sesi cloud hanya punya jaringan + kredensial untuk elharamainwisata.com; elharamain.id, elharamainhaji.com, haji.biz diblokir jaringan (curl 000) dan tanpa env kredensial. Solusi: tambah domain ke Network access + env `ELHARAMAINID_*`, `ELHARAMAINHAJI_*`, `HAJIBIZ_*` di pengaturan environment, lalu sesi baru.
+- haji.biz ikut di `ENV`/deploy (post UAE dicari dari judul). `tools/cek_auth_situs.py`: diagnosis auth REST. Dugaan auth haji.biz: WordPress mematikan Application Password karena tidak mendeteksi HTTPS (is_ssl false di belakang proxy) — WP ≥5.6 sudah membaca HTTP_AUTHORIZATION sendiri, jadi snippet penambal tak perlu. Perlu dibuktikan dengan skrip ini.
