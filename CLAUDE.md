@@ -29,6 +29,7 @@ Kredensial: env var per domain (nama ada di README), jangan tulis di repo.
   **haji.biz sekarang di WordPress.com** (blog ID 257739192, atomic, domain custom aktif; Elementor, Rank Math Pro, UAE, Click to Chat Pro, WPCode sudah terpasang);
   `news.elharamainwisata.com` (blog ID 257737206, atomic, portal berita); `sublime-collector.wordpress.com` (blog ID 257742537, kosong, tujuan belum dijelaskan).
   Konektor MCP `haji_biz` (hosting lama) sudah tidak relevan; auth REST lama haji.biz yang rusak = tidak berlaku lagi (uji ulang jika perlu REST di hosting baru).
+- Konektor `Elharamainhaji`, `Elharamain_id` sudah diotorisasi (30 Sep 2026); tool serupa haji.biz.
 - REST API elharamainwisata.com: lihat `README.md` (snippet WPCode `wordpress/wpcode-bantu-login-api.php`, kredensial dari env `WP_USER` / `WP_APP_PASSWORD`, jangan pernah tulis kredensial di repo).
 - Tool marketplace hanya memasang plugin dari URL download; plugin berbayar butuh file zip/lisensi dari pemilik.
 
@@ -73,3 +74,6 @@ CSS perbaikan di footer UAE (post 419, `<style id="hb-gp-fix">`), sidebar dirapi
 - Konektor MCP `Elharamainhaji` & `Elharamain_id` sudah tersambung (3 Okt 2026); audit SEO keduanya skor 80, detail di `catatan/2026-10-03-sesi.md`.
 
 Tambahan sesi 2026-10-05: halaman /haji/ elharamainwisata.com disalin sebagai Draft di haji.biz (page ID 894, `brosur-haji-plus-2027`); lihat `catatan/2026-10-05-sesi.md`. Belum publish; cek risiko konten duplikat dulu.
+- Header/footer UAE 3 situs: `tools/build_header_footer_situs.py` (`--deploy` menimpa post 805/807 elharamain.id & 3512/3514 elharamainhaji.com; haji.biz tempel manual).
+- Konektor MCP `Elharamainhaji` & `Elharamain_id` sudah diotorisasi (30 Sep) — CLAUDE.md bagian Akses perlu sesi baru untuk dipakai penuh.
+- Halaman paket: `tools/build_halaman_paket.py --deploy` (dijalankan pemilik di Windows). elharamain.id: Silver 234 & Platinum 460 publish; Draft 809/811/814/815. elharamainhaji.com: Draft 3516. Foto fasilitas di Cloudinary `Elharamainwisata/Fasilitas`.
