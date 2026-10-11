@@ -51,6 +51,29 @@ seluruh post type "post" di-set noindex + dikeluarkan dari sitemap lewat `rank-m
 `set-sitemap-settings`. Artikel baru yang genuine (id 3509 di atas) di-override manual jadi `index` per-post.
 **Perlu:** cari sumber generator (cek Cron Job cPanel hosting), ganti password login akun `elharamainhaji`.
 
+**Update 30 Sep (konektor MCP `Elharamainhaji` sudah tersambung) — sumber "generator" ketemu:** tidak ada proses
+aktif. Semua post dibuat **sekaligus** (ID 913–1978, author `elharamainhaji`) lalu diberi tanggal terbit bertahap
+(drip, ±2–3/hari) dari 25 Jun 2025 s.d. 20 Nov 2026; WordPress sendiri (WP-Cron) yang menerbitkannya satu per satu.
+Judul memakai nomor WA Elharamain sendiri (0812-8729-2422), jadi kemungkinan besar dibuat oleh tim/vendor SEO lama
+(tool bulk post, lalu plugin-nya dihapus), bukan peretas. Dua batch: "Paket Haji Plus Kabupaten …" (slug
+`paket-haji-plus-…`, 2025) dan "Haji Plus Kabupaten …" (slug `haji-onh-plus-…`).
+- Per 30 Sep 2026 09:57 WIB: **153 post masih berstatus `future`** (terjadwal 30 Sep–20 Nov 2026, ID ±1824–1978).
+- Menghentikan drip = ubah 153 post terjadwal itu jadi Draft/Trash. Tool MCP tidak punya ability ubah status post
+  → lakukan di wp-admin: Posts → filter **Scheduled** → pilih semua → Bulk actions → Move to Trash (atau Edit → Draft).
+  **Butuh keputusan pemilik** (post lama yang sudah terbit tetap noindex; opsi lanjut: trash semua + redirect 301 ke beranda).
+
+**Dikerjakan 30 Sep (keputusan pemilik: "trash, redirect"):** 1.530 post spam (1.377 terbit + 153 terjadwal, 3 pola slug
+`paket-haji-plus-`, `haji-onh-plus-`, `travel-haji-khusus-` + `kabupaten|kabuapaten|kota-`) dipindah ke **Trash** via REST
+(bisa dipulihkan 30 hari). Daftar lengkap: `backup/elharamainhaji-spam-posts-2026-09-30.csv`. Satu-satunya post asli (draf 3509)
+tidak disentuh. Modul Rank Math **Redirections** diaktifkan.
+- Redirect 301: endpoint REST Rank Math `updateRedirection` menjawab "created" tapi **tidak menyimpan** apa pun (ID kosong),
+  jadi dibuat manual 1 aturan regex di wp-admin → Rank Math → Redirections → Add New:
+  Source `^(paket-haji-plus|haji-onh-plus|travel-haji-khusus)-(kabupaten|kabuapaten|kota)-` (Regex) → `https://www.elharamainhaji.com/`, 301.
+  Regex ini TIDAK kena halaman asli `paket-haji-plus-elharamain-wisata`.
+- Pelajaran teknis elharamainhaji.com: WAF hosting (`x-rasp-block: 1`) memblokir POST ke `/wp-json/rankmath/...`; pakai
+  `/?rest_route=/rankmath/...`. Cloudflare kadang membalas halaman anti-bot HTML (status 200/403) → skrip harus retry.
+  Env var di cloud: `ELHARAMAINHAJI_USER` / `ELHARAMAINHAJI_WP_APP_PASSWORD`.
+
 ## Sinkron Windows ↔ Mac
 - Branch kerja utama: **`main`** (gabungan semua branch `claude/*` per 2026-09-26).
 - Sebelum mulai kerja: `git pull`. Setelah selesai: commit lalu `git push`.
