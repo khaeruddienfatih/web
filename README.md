@@ -109,21 +109,24 @@ tidak disentuh. Modul Rank Math **Redirections** diaktifkan.
 |---|---|
 | `tools/build_musim_dingin.py`, `tools/build_pages.py` | Builder data paket, kartu/tab, Elementor data + SEO Rank Math untuk 9581, 8869, 8896, 8908, 8909, 8910, 9099. Jalankan: `OUT=build python3 tools/build_pages.py` |
 | `tools/build_header.py`, `build_footer.py`, `deploy.py`, `warm.py`, … | Tools header/footer, deploy, isi ulang cache (sesi 24–25 Sep) |
-| `data/paket-umroh.json`, `landing-pages/build-section-harga.js` | Data 17 paket & builder section harga (versi statis tab CSS) |
-| `data/harga-paket-umroh.md`, `data/brosur/*.pdf` | Harga dari brosur Nov 2026–Jan 2027 |
+| `data/paket-umroh.json`, `landing-pages/build-section-harga.js` | Data 22 paket & builder section harga (versi statis tab CSS; belum memuat edit live, lihat **Penting** di bawah) |
+| `tools/update_paket_2026_10.py` | Patch langsung 3 Okt 2026: Gold November + tab Ramadhan 1448 H di kartu harga 12 halaman, periode Ramadhan + PDF baru di 9581, schema TouristTrip/FAQ (`STEP=schema`) |
+| `data/harga-paket-umroh.md`, `data/brosur/*.pdf` | Harga dari brosur Nov 2026–Feb 2027 (Ramadhan 1448 H). PDF yang live: `wp-content/uploads/2026/10/paket-umroh-riyadh-air-november-2026.pdf` & `…/paket-umroh-ramadhan-1448h-februari-2027.pdf` |
 | `landing-pages/widget/` | Widget HTML yang **sedang live** (lihat tabel di bawah) |
 | `gtm/IMPORT-GTM-elharamain.json` | File import container GTM (tag yang dipindah dari situs) |
 | `backup/pages/` | Data halaman sebelum redesign 24 Sep |
 | `backup/2026-09-26/<id>_sebelum_<tahap>.json` | `_elementor_data` tiap halaman sebelum tiap tahap perubahan 26 Sep |
+| `backup/2026-10-03/<id>_sebelum_{ramadhan,schema}.json` | `_elementor_data` 12 halaman paket sebelum update 3 Okt |
 
 ### Widget live (26 Sep 2026)
 | File | Dipasang di | Keterangan |
 |---|---|---|
 | `widget/hero-slider.html` | 13 halaman* (menggantikan Image Carousel Elementor) | Slider header ringan: 25 foto Cloudinary `Elharamainwisata/Header`, foto 1 prioritas tinggi, srcset 480/800/1200, tanpa jQuery/Swiper |
-| `widget/kartu-harga-live.html` | 9581 + 6 cabang; varian urutan per tier di 8869/8896/8908/8909/8910 | 17 paket, foto `Elharamainwisata/Kartu Paket` (kartu-paket-01…17, dari Canva tanpa logo), baris Hotel Madinah |
+| `widget/kartu-harga-live.html` | 9581 + 6 cabang; varian urutan per tier di 8869/8896/8908/8909/8910 | 22 paket, tab Semua/November/Desember/Januari/Ramadhan; foto `Elharamainwisata/Kartu Paket` (kartu-paket-01…17 dari Canva tanpa logo, 23…27 = foto rombongan dari brosur 3 Okt; 18…22 ada tapi belum dipakai), baris Hotel Madinah |
 | `widget/perlengkapan.html` | 13 halaman* | Foto 2560px dari Canva: `perlengkapan-pria-2026`, `perlengkapan-wanita-2026-a` (ada juga `-b`) |
 | `widget/fasilitas-ketentuan-tab.html` | 12 halaman (tanpa beranda) | Tab CSS: Sudah Termasuk / Belum Termasuk / Dokumen / Pendaftaran & Pembayaran |
 | `widget/wa-cabang-template.html` | 6 halaman cabang (ditempel di akhir widget fasilitas) | Semua klik WA ke nomor pusat → nomor cabang, termasuk tombol melayang Click to Chat |
+| `widget/fasilitas-hotel-bus.html` | 13 halaman elharamainwisata.com (9581, beranda, 5 tier, 6 cabang) + 12 halaman umroh elharamain.id + 4 halaman umroh elharamainhaji.com (menggantikan carousel "Fasilitas Elharamain Wisata" 2025, 3 Okt) | Slider (scroll-snap + panah/titik/autoplay 4 dtk) 7 hotel Makkah, 4 hotel Madinah, 1 bus; foto gabungan dari brosur di Cloudinary `Elharamainwisata/Fasilitas`. Builder: `tools/fasilitas_hotel.py` (`DEPLOY=1 SITE=wisata\|id\|haji`) |
 | `widget/pembimbing-slider.html` | 13 halaman* | Slider 8 ustadz, 4/3/2/1,3 per tampilan, autoplay 4 dtk |
 
 \* 13 halaman = Beranda 7840, Musim Dingin 9581, Bronze 8869, Silver 8896, Platinum 8908, Premium 8909, Silver 12 Hari 8910,
@@ -151,6 +154,14 @@ Rotasi tombol WA melayang (Click to Chat Pro, diatur di WP Admin karena endpoint
 - Catatan: trigger konversi Ads lama (label `adEmCOr05NIbEIO-0fEq`) hanya aktif di `umroh.elharamainwisata.com`.
 
 ## Pelajaran teknis
+- **File CSS Elementor (`post-N.css`) di-cache browser/Cloudflare 1 tahun, dan `?ver=` tidak berubah** walau file dibuat ulang
+  (semua halaman `ver=1790305183`). Mengubah gaya lewat setting Elementor (font, warna, ukuran) TIDAK terlihat oleh pengunjung
+  yang pernah membuka halaman. Untuk perubahan gaya yang harus langsung terlihat: tanam `<style>` inline di widget HTML
+  (HTML halaman tidak di-cache, `no-store`). Contoh: `tools/fix_judul_dan_carousel.py`.
+- REST elharamain.id & elharamainhaji.com: pakai host **www.** (tanpa www diblokir proxy) dan **curl** (Cloudflare kadang menolak
+  urllib Python). Respons REST elharamain.id diawali `<style id="elementor-post-N">` bocoran plugin — lewati sampai awal JSON.
+- Image Carousel Elementor + lazyload: placeholder GIF 1x1 dirender persegi sehingga slider jadi terlalu tinggi (ruang kosong di bawah
+  foto). Obat: CSS `aspect-ratio` pada `.swiper-slide-image` (lihat `tools/fix_judul_dan_carousel.py`).
 - **Jangan tulis tag HTML (mis. teks `<script>`) di dalam komentar HTML pada widget**: pengoptimal LiteSpeed membacanya sebagai
   tag sungguhan dan sebagian besar halaman hilang dari output.
 - LiteSpeed menunda semua JavaScript sampai pengunjung berinteraksi → konten penting harus HTML statis. Script yang harus
@@ -169,7 +180,10 @@ Rotasi tombol WA melayang (Click to Chat Pro, diatur di WP Admin karena endpoint
 4. Konfirmasi nomor WA Bandung dan nomor rotasi 6285843372026 di plugin Click to Chat.
 5. Cek plugin mencurigakan "Block Widget" (Auto generated plugin, by Admin).
 6. Setelah selesai: hapus snippet WPCode bantu-login dan cabut Application Password.
-7. **Baru (30 Sep):** review & publish 4 draft artikel SEO di atas; putuskan auto-fix `post_titles` (7 artikel
+7. **Selesai 3 Okt:** brosur Riyadh Air November (update 29/09: + paket Gold, Madinah Al-Aqeeq) & Ramadhan 1448 H (4 paket,
+   Feb 2027) sudah live di 12 halaman paket. Sisa: SEO title/description 9581 belum menyebut Ramadhan; tab "Semua" belum
+   menampilkan paket Ramadhan; builder (`build-section-harga.js`, `build_musim_dingin.py`, `build_pages.py`) belum disinkronkan.
+8. **Baru (30 Sep):** review & publish 4 draft artikel SEO di atas; putuskan auto-fix `post_titles` (7 artikel
    elharamainwisata.com, lihat ability `rank-math/audit-site-seo`); cari sumber generator spam kabupaten di
    elharamainhaji.com; investigasi ulang auth REST haji.biz sebelum pasang snippet lagi; pertimbangkan pindah
    artikel edukasi haji dari elharamainhaji.com ke haji.biz sesuai peran domain baru.

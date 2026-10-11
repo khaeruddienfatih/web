@@ -18,6 +18,8 @@ Kredensial: env var per domain (nama ada di README), jangan tulis di repo.
 - MCP WordPress tersambung: `elharamainwisata_com`, `haji_biz` (tool: elementor/*, rank-math/*, marketplace/*).
 - `Elharamainhaji` & `Elharamain_id` **sudah tersambung** (30 Sep, kemampuan sama).
 - `Elharamainhaji` & `Elharamain_id` **sudah tersambung** (30 Sep 2026), tool sama (elementor/*, rank-math/*, marketplace/*).
+- Sejak 3 Okt 2026 juga tersambung: `Elharamainhaji`, `Elharamain_id` (MCP adapter: discover/execute ability).
+- Cloudinary: upload langsung dari container diblokir proxy → upload file ke Media WP via REST, lalu `upload-asset` Cloudinary dari URL WP.
 - REST API elharamainwisata.com: lihat `README.md` (snippet WPCode `wordpress/wpcode-bantu-login-api.php`, kredensial dari env `WP_USER` / `WP_APP_PASSWORD`, jangan pernah tulis kredensial di repo).
 - Tool marketplace hanya memasang plugin dari URL download; plugin berbayar butuh file zip/lisensi dari pemilik.
 
@@ -48,3 +50,10 @@ Lihat "Pekerjaan berikutnya" di `README.md`. Tambahan sesi 2026-09-30:
 - **Indexing haji.biz seret**: anti-bot hosting (openresty) membalas halaman reload ke Googlebot; haji.biz tidak lewat Cloudflare. Detail & rekomendasi: catatan/2026-09-30-sesi.md (bagian audit indexing).
 - SEO Rank Math per post bisa diisi via REST `POST /rankmath/v1/updateMeta` {objectID, objectType:'post', meta}.
 - Audit Rank Math 30 Sep: elharamainhaji.com skor 78 (59 post + 12 halaman tanpa focus keyword, GSC belum ditautkan); elharamain.id skor 80 (meta deskripsi beranda 170 kar., 42 gambar tanpa alt, og:image kosong, GSC belum ditautkan).
+- (3 Okt) Konektor `Elharamainhaji` & `Elharamain_id` sudah tersambung.
+- (3 Okt) Brosur Riyadh Air November (update 29/09) & Ramadhan 1448 H sudah live di 12 halaman paket elharamainwisata.com
+  (atas permintaan pemilik). Skrip: `tools/update_paket_2026_10.py`, backup `backup/2026-10-03/`. Sisa: SEO 9581, tab "Semua", sinkron builder.
+- (3 Okt) Carousel "Fasilitas Elharamain Wisata" lama diganti slider semua hotel + bus (`tools/fasilitas_hotel.py`) di 13 halaman
+  elharamainwisata.com, 12 halaman elharamain.id, 4 halaman umroh elharamainhaji.com. Halaman haji & haji.biz tidak diubah.
+- (3 Okt) Judul "Apa Kata Jamaah…" dikecilkan (36/30/22 px) di 15 halaman; ruang kosong di bawah carousel 8289 diperbaiki.
+- Hosting elharamainwisata.com kadang membalas halaman anti-bot "One moment, please..." (juga ke REST) → tunggu ±20 dtk lalu ulangi.
