@@ -8,7 +8,7 @@ Baca file ini di awal sesi. Bahasa kerja: Indonesia. Jangan minta pemilik mengul
 | elharamainwisata.com | Web utama, hub brand (umroh + haji). **Sudah bagus — JANGAN diubah.** |
 | elharamainhaji.com | Web haji utama (jualan/transaksional). 1.530 post spam sudah di-Trash (30 Sep); lihat README |
 | elharamain.id | Info/edukasi umroh |
-| haji.biz | Info/edukasi haji. **Auth REST rusak** — jangan pasang snippet WPCode lagi tanpa investigasi |
+| haji.biz | Info/edukasi haji. Theme **GeneratePress** (sejak Okt 2026). Auth REST jalan lagi per 10 Okt 2026 |
 
 **Sumber kebenaran: `README.md` (branch `main`).** Baca itu dulu; berisi peran domain, tools, widget live, tracking GTM,
 pelajaran teknis LiteSpeed, dan daftar "Pekerjaan berikutnya". Branch kerja utama = `main`; jangan mulai dari branch `claude/*` lama.
@@ -57,3 +57,7 @@ Lihat "Pekerjaan berikutnya" di `README.md`. Tambahan sesi 2026-09-30:
   elharamainwisata.com, 12 halaman elharamain.id, 4 halaman umroh elharamainhaji.com. Halaman haji & haji.biz tidak diubah.
 - (3 Okt) Judul "Apa Kata Jamaah…" dikecilkan (36/30/22 px) di 15 halaman; ruang kosong di bawah carousel 8289 diperbaiki.
 - Hosting elharamainwisata.com kadang membalas halaman anti-bot "One moment, please..." (juga ke REST) → tunggu ±20 dtk lalu ulangi.
+- Konektor MCP `Elharamainhaji` & `Elharamain_id` belum diotorisasi di claude.ai.
+
+Tambahan sesi 2026-10-10: haji.biz ganti theme ke GeneratePress; template halaman LandingPress diganti ke Elementor Full Width,
+CSS perbaikan di footer UAE (post 419, `<style id="hb-gp-fix">`), sidebar dirapikan. Detail: `catatan/2026-10-10-sesi.md`.
