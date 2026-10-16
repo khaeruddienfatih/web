@@ -67,3 +67,7 @@ Tambahan sesi 2026-10-05: halaman /haji/ elharamainwisata.com disalin sebagai Dr
 Tambahan sesi 2026-10-11: semua branch `claude/*` (6 branch) sudah di-merge ke `main`. Versi catatan yang bentrok disimpan
 dengan akhiran nama branch di `catatan/`. Untuk `wordpress/uae/haji-biz-*.html` dipakai versi yang sama dengan live (cadangan 10 Okt).
 Ada dua set generator header/footer UAE (`build_uae_sites.py`+`deploy_uae.py` dan `build_header_footer_situs.py`) — pakai yang pertama; perlu dirapikan.
+
+Tambahan sesi 2026-10-16: **elharamainwisata.co.id** = situs Laravel (bukan WP), akses lewat Chromium headless (Playwright).
+Admin: `https://elharamainwisata.co.id/secret-admin/login` (pakai apex; www diblokir egress), kredensial env
+`ELHARAMAINCOID_ADMIN_EMAIL` / `ELHARAMAINCOID_ADMIN_PASSWORD`. Baca/audit dulu, konfirmasi sebelum ubah. Detail: `catatan/2026-10-16-sesi.md`.
