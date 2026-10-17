@@ -1,0 +1,24 @@
+{
+  "sumber": "Brosur PDF: Akhir Desember 2026 (update 23/09/2026), Januari 2027 (10/09/2026), Ramadhan Feb 2027 (01/10/2026)",
+  "catatan": "Harga rupiah per orang. quad=Ber-Empat, triple=Ber-Tiga, double=Ber-Dua. Hotel format: Madinah / Makkah.",
+  "januari_2027": [
+    {"paket":"Bronze 9H","rute":"JED-JED","hotel":"Al-Aqeeq / Anjum","tanggal":["2027-01-03","2027-01-04","2027-01-09","2027-01-11","2027-01-17","2027-01-31"],"quad":37900000,"triple":40400000,"double":43900000},
+    {"paket":"Silver 9H","rute":"MED-JED (3,4,31 Jan); JED-MED (25 Jan)","hotel":"Al-Aqeeq / Anjum","tanggal":["2027-01-03","2027-01-04","2027-01-25","2027-01-31"],"quad":39000000,"triple":41500000,"double":45000000},
+    {"paket":"Platinum 9H","rute":"MED-JED","hotel":"Movenpick / Marwa Rotana atau Movenpick","tanggal":["2027-01-11","2027-01-18","2027-01-25","2027-01-31"],"quad":48500000,"triple":51500000,"double":55500000,"bonus":"H-1 Hotel 101, Jabal Khandama + golf car Sai, abaya & jaket, GMC tour night Jabal Uhud"},
+    {"paket":"Premium 9H","rute":"MED-JED","hotel":"Movenpick / Fairmont","tanggal":["2027-01-11","2027-01-31"],"quad":52000000,"triple":56000000,"double":61000000,"bonus":"sama dengan Platinum"},
+    {"paket":"Silver 12H","rute":"MED-JED","hotel":"Al-Aqeeq / Anjum","tanggal":["2027-01-13","2027-01-14","2027-01-20"],"quad":43500000,"triple":46000000,"double":49500000,"bonus":"GMC tour night Jabal Uhud"},
+    {"paket":"Gold 12H","rute":"MED-JED","hotel":"Al-Aqeeq / Marwa Rotana atau Movenpick","tanggal":["2027-01-14","2027-01-20","2027-01-24"],"quad":54000000,"triple":57000000,"double":61000000,"bonus":"GMC tour night Jabal Uhud"}
+  ],
+  "akhir_desember_2026": [
+    {"paket":"Silver 9H","rute":"JED-JED","hotel":"Al-Aqeeq / Anjum","tanggal":["2026-12-21","2026-12-22","2026-12-26"],"quad":47000000,"triple":51000000,"double":56000000},
+    {"paket":"Platinum 9H","rute":"JED-JED","hotel":"Al-Aqeeq / Marwa Rotana atau Movenpick","tanggal":["2026-12-21","2026-12-22","2026-12-26"],"quad":54000000,"triple":58000000,"double":64000000},
+    {"paket":"Silver 12H","rute":"JED-JED","hotel":"Al-Aqeeq / Anjum","tanggal":["2026-12-27"],"quad":53000000,"triple":57000000,"double":66000000},
+    {"paket":"Gold 12H","rute":"JED-JED","hotel":"Al-Aqeeq / Marwa Rotana atau Movenpick","tanggal":["2026-12-23","2026-12-27"],"quad":60000000,"triple":66000000,"double":75000000}
+  ],
+  "ramadhan_feb_2027": [
+    {"paket":"Bronze 9H","hotel":"Royal Andalus / Al Shohada","tanggal":["2027-02-08","2027-02-14","2027-02-15"],"quad":39500000,"triple":41500000,"double":43500000},
+    {"paket":"Platinum 9H","hotel":"Al Aqeeq / Marwa Rotana","tanggal":["2027-02-14","2027-02-21"],"quad":56000000,"triple":59000000,"double":63000000},
+    {"paket":"Premium 9H","hotel":"Al Aqeeq / Fairmont","tanggal":["2027-02-14"],"quad":60000000,"triple":64000000,"double":68000000},
+    {"paket":"Silver 17H I'tikaf-Lailatul Qadr","hotel":"Al Aqeeq / Royal Majestik","tanggal":["2027-02-28"],"quad":71000000,"triple":80000000,"double":97000000}
+  ]
+}
