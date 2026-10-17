@@ -69,4 +69,4 @@ dengan akhiran nama branch di `catatan/`. Untuk `wordpress/uae/haji-biz-*.html` 
 Ada dua set generator header/footer UAE (`build_uae_sites.py`+`deploy_uae.py` dan `build_header_footer_situs.py`) — pakai yang pertama; perlu dirapikan.
 
 Tambahan sesi 2026-10-17 (permintaan eksplisit pemilik): bagian "Kenapa Memilih Elharamain Wisata?" & "Pembimbing Ibadah" dihapus dari
-12 halaman umroh elharamainwisata.com, tetap ada di beranda. Detail & cara kembalikan: `catatan/2026-10-17-sesi.md`.
+12 halaman umroh elharamainwisata.com, tetap ada di beranda. Layanan Eksklusif di 11 halaman umroh diganti model 3 kolom ikon (seperti 8909); beranda belum. Detail & cara kembalikan: `catatan/2026-10-17-sesi.md`.
