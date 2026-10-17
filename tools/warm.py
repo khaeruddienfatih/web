@@ -10,7 +10,7 @@ bad = []
 for p in pages:
     subprocess.run(['curl', '-sS', '-o', '/dev/null', '--max-time', '90', f"{p['link']}?warm={random.randint(1, 10**9)}"])
     code = subprocess.run(['curl', '-sS', '-o', '/dev/null', '-w', '%{http_code}', '--max-time', '60',
-                           f"https://www.elharamainwisata.com/wp-content/uploads/elementor/css/post-{p['id']}.css"],
+                           f"https://elharamainwisata.com/wp-content/uploads/elementor/css/post-{p['id']}.css"],
                           capture_output=True, text=True).stdout
     if code != '200':
         bad.append((p['id'], p['link'], code))

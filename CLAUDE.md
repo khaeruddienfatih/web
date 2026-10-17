@@ -67,3 +67,6 @@ Tambahan sesi 2026-10-05: halaman /haji/ elharamainwisata.com disalin sebagai Dr
 Tambahan sesi 2026-10-11: semua branch `claude/*` (6 branch) sudah di-merge ke `main`. Versi catatan yang bentrok disimpan
 dengan akhiran nama branch di `catatan/`. Untuk `wordpress/uae/haji-biz-*.html` dipakai versi yang sama dengan live (cadangan 10 Okt).
 Ada dua set generator header/footer UAE (`build_uae_sites.py`+`deploy_uae.py` dan `build_header_footer_situs.py`) — pakai yang pertama; perlu dirapikan.
+
+Tambahan sesi 2026-10-17 (permintaan eksplisit pemilik): bagian "Kenapa Memilih Elharamain Wisata?" & "Pembimbing Ibadah" dihapus dari
+12 halaman umroh elharamainwisata.com, tetap ada di beranda. Detail & cara kembalikan: `catatan/2026-10-17-sesi.md`.
