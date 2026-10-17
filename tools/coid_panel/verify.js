@@ -3,7 +3,7 @@ const { chromium } = require(process.env.PWPATH);
   const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium', args:['--no-sandbox'] });
   const ctx = await b.newContext({ storageState:'state.json', viewport:{width:1500,height:2200} });
   const p = await ctx.newPage();
-  for (const id of [57,58,59,60,61,62]) {
+  for (const id of (process.env.IDS||"57,58,59,60,61,62").split(",").map(Number)) {
     await p.goto(`https://elharamainwisata.co.id/secret-admin/travel-packages/${id}/edit`, {waitUntil:'domcontentloaded',timeout:60000}); await p.waitForTimeout(5000);
     const f = await p.$$eval('input[id^="form."]', es=>Object.fromEntries(es.map(e=>[e.id.replace('form.',''),e.value])));
     const name=f.name, prices=Object.entries(f).filter(([k])=>/price$/.test(k)&&!/discount/.test(k)).map(([,v])=>v);
