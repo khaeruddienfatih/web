@@ -1,0 +1,299 @@
+{
+ "42": {
+  "url": "https://elharamainwisata.co.id/secret-admin/haji-packages/42/edit",
+  "fields": [
+   [
+    "service_type",
+    ""
+   ],
+   [
+    "name",
+    "Paket Haji Plus Gold"
+   ],
+   [
+    "slug",
+    ""
+   ],
+   [
+    "description",
+    "Paket Haji Plus Gold"
+   ],
+   [
+    "category_id",
+    "2"
+   ],
+   [
+    "package_types.record-119.name",
+    "Sekamar Berempat"
+   ],
+   [
+    "package_types.record-119.dp_amount",
+    "4000"
+   ],
+   [
+    "package_types.record-119.room_option",
+    "4"
+   ],
+   [
+    "package_types.record-119.duration_days",
+    ""
+   ],
+   [
+    "package_types.record-119.maktab_vip",
+    ""
+   ],
+   [
+    "package_types.record-119.jamarat_distance",
+    ""
+   ],
+   [
+    "package_types.record-119.hotel_makkah",
+    ""
+   ],
+   [
+    "package_types.record-119.hotel_madinah",
+    ""
+   ],
+   [
+    "package_types.record-119.hotel_transit",
+    ""
+   ],
+   [
+    "package_types.record-119.maskapai",
+    ""
+   ],
+   [
+    "package_types.record-119.transportation",
+    ""
+   ],
+   [
+    "package_types.record-119.bimbingan",
+    ""
+   ],
+   [
+    "package_types.record-119.program_arbain",
+    ""
+   ],
+   [
+    "package_types.record-119.layanan",
+    ""
+   ],
+   [
+    "package_types.record-119.price",
+    "15,000"
+   ],
+   [
+    "package_types.record-119.discount_percent",
+    "0"
+   ],
+   [
+    "package_types.record-119.discount_price",
+    "15,000"
+   ]
+  ],
+  "labels": [
+   "Package Name*",
+   "Description*",
+   "Category*",
+   "Visible on Website"
+  ]
+ },
+ "43": {
+  "url": "https://elharamainwisata.co.id/secret-admin/haji-packages/43/edit",
+  "fields": [
+   [
+    "service_type",
+    ""
+   ],
+   [
+    "name",
+    "Paket Haji Plus Gold Arbain"
+   ],
+   [
+    "slug",
+    ""
+   ],
+   [
+    "description",
+    "Gold Arbain"
+   ],
+   [
+    "category_id",
+    "2"
+   ],
+   [
+    "package_types.record-120.name",
+    "Sekemar Beremapt"
+   ],
+   [
+    "package_types.record-120.dp_amount",
+    "4000"
+   ],
+   [
+    "package_types.record-120.room_option",
+    "4"
+   ],
+   [
+    "package_types.record-120.duration_days",
+    ""
+   ],
+   [
+    "package_types.record-120.maktab_vip",
+    ""
+   ],
+   [
+    "package_types.record-120.jamarat_distance",
+    ""
+   ],
+   [
+    "package_types.record-120.hotel_makkah",
+    ""
+   ],
+   [
+    "package_types.record-120.hotel_madinah",
+    ""
+   ],
+   [
+    "package_types.record-120.hotel_transit",
+    ""
+   ],
+   [
+    "package_types.record-120.maskapai",
+    ""
+   ],
+   [
+    "package_types.record-120.transportation",
+    ""
+   ],
+   [
+    "package_types.record-120.bimbingan",
+    ""
+   ],
+   [
+    "package_types.record-120.program_arbain",
+    ""
+   ],
+   [
+    "package_types.record-120.layanan",
+    ""
+   ],
+   [
+    "package_types.record-120.price",
+    "16,500"
+   ],
+   [
+    "package_types.record-120.discount_percent",
+    "0"
+   ],
+   [
+    "package_types.record-120.discount_price",
+    "16,500"
+   ]
+  ],
+  "labels": [
+   "Package Name*",
+   "Description*",
+   "Category*",
+   "Visible on Website"
+  ]
+ },
+ "44": {
+  "url": "https://elharamainwisata.co.id/secret-admin/haji-packages/44/edit",
+  "fields": [
+   [
+    "service_type",
+    ""
+   ],
+   [
+    "name",
+    "Paket Haji Plus Platinum"
+   ],
+   [
+    "slug",
+    ""
+   ],
+   [
+    "description",
+    "Paket Haji Plus Platinum"
+   ],
+   [
+    "category_id",
+    "2"
+   ],
+   [
+    "package_types.record-121.name",
+    "Sekamar Berempat"
+   ],
+   [
+    "package_types.record-121.dp_amount",
+    "4000"
+   ],
+   [
+    "package_types.record-121.room_option",
+    "4"
+   ],
+   [
+    "package_types.record-121.duration_days",
+    ""
+   ],
+   [
+    "package_types.record-121.maktab_vip",
+    ""
+   ],
+   [
+    "package_types.record-121.jamarat_distance",
+    ""
+   ],
+   [
+    "package_types.record-121.hotel_makkah",
+    ""
+   ],
+   [
+    "package_types.record-121.hotel_madinah",
+    ""
+   ],
+   [
+    "package_types.record-121.hotel_transit",
+    ""
+   ],
+   [
+    "package_types.record-121.maskapai",
+    ""
+   ],
+   [
+    "package_types.record-121.transportation",
+    ""
+   ],
+   [
+    "package_types.record-121.bimbingan",
+    ""
+   ],
+   [
+    "package_types.record-121.program_arbain",
+    ""
+   ],
+   [
+    "package_types.record-121.layanan",
+    ""
+   ],
+   [
+    "package_types.record-121.price",
+    "19,500"
+   ],
+   [
+    "package_types.record-121.discount_percent",
+    "0"
+   ],
+   [
+    "package_types.record-121.discount_price",
+    "19,500"
+   ]
+  ],
+  "labels": [
+   "Package Name*",
+   "Description*",
+   "Category*",
+   "Visible on Website"
+  ]
+ }
+}

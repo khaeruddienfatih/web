@@ -1,0 +1,942 @@
+{
+ "42": {
+  "url": "https://elharamainwisata.co.id/secret-admin/haji-packages/42/edit",
+  "fields": [
+   [
+    "service_type",
+    ""
+   ],
+   [
+    "name",
+    "Paket Haji Plus Gold"
+   ],
+   [
+    "slug",
+    ""
+   ],
+   [
+    "description",
+    "Paket Haji Plus Gold 1448 H (estimasi keberangkatan 2027, kuota resmi Kemenag RI). Marwa Rotana depan Masjidil Haram, Al-Aqeeq Madinah, VIP Maktab 113, Hotel Transit Orvana."
+   ],
+   [
+    "category_id",
+    "2"
+   ],
+   [
+    "package_types.record-119.name",
+    "Sekamar Berempat"
+   ],
+   [
+    "package_types.record-119.dp_amount",
+    "4000"
+   ],
+   [
+    "package_types.record-119.room_option",
+    "4"
+   ],
+   [
+    "package_types.record-119.duration_days",
+    "22-23 Hari"
+   ],
+   [
+    "package_types.record-119.maktab_vip",
+    "VIP Maktab 113"
+   ],
+   [
+    "package_types.record-119.jamarat_distance",
+    "600 mtr"
+   ],
+   [
+    "package_types.record-119.hotel_makkah",
+    "Marwa Rotana / Setaraf (Depan Masjidil Haram)"
+   ],
+   [
+    "package_types.record-119.hotel_madinah",
+    "Al-Aqeeq Hotel / Setaraf (50 m)"
+   ],
+   [
+    "package_types.record-119.hotel_transit",
+    "Hotel Orvana"
+   ],
+   [
+    "package_types.record-119.maskapai",
+    "Saudia Airlines / Qatar / Emirates"
+   ],
+   [
+    "package_types.record-119.transportation",
+    "Bus VIP; Makkah-Madinah by Haramain High Speed Railway"
+   ],
+   [
+    "package_types.record-119.bimbingan",
+    "Manasik Camp 5 Hari, Kajian Rutin 5 Waktu Sholat, Program Tarwiyah, Siroh Nabawiyah, Ziarah Raudoh"
+   ],
+   [
+    "package_types.record-119.program_arbain",
+    "Tidak"
+   ],
+   [
+    "package_types.record-119.layanan",
+    "1 Bus 3 Petugas, Tenda VIP Mina & Arafah, Layanan Kesehatan, Umroh difasilitasi 3x, Free Badal Haji"
+   ],
+   [
+    "package_types.record-119.price",
+    "15,500"
+   ],
+   [
+    "package_types.record-119.discount_percent",
+    "0"
+   ],
+   [
+    "package_types.record-119.discount_price",
+    "15,500"
+   ],
+   [
+    "package_types.record-188.name",
+    "Sekamar Bertiga"
+   ],
+   [
+    "package_types.record-188.dp_amount",
+    "4000"
+   ],
+   [
+    "package_types.record-188.room_option",
+    "3"
+   ],
+   [
+    "package_types.record-188.duration_days",
+    "22-23 Hari"
+   ],
+   [
+    "package_types.record-188.maktab_vip",
+    "VIP Maktab 113"
+   ],
+   [
+    "package_types.record-188.jamarat_distance",
+    "600 mtr"
+   ],
+   [
+    "package_types.record-188.hotel_makkah",
+    "Marwa Rotana / Setaraf (Depan Masjidil Haram)"
+   ],
+   [
+    "package_types.record-188.hotel_madinah",
+    "Al-Aqeeq Hotel / Setaraf (50 m)"
+   ],
+   [
+    "package_types.record-188.hotel_transit",
+    "Hotel Orvana"
+   ],
+   [
+    "package_types.record-188.maskapai",
+    "Saudia Airlines / Qatar / Emirates"
+   ],
+   [
+    "package_types.record-188.transportation",
+    "Bus VIP; Makkah-Madinah by Haramain High Speed Railway"
+   ],
+   [
+    "package_types.record-188.bimbingan",
+    "Manasik Camp 5 Hari, Kajian Rutin 5 Waktu Sholat, Program Tarwiyah, Siroh Nabawiyah, Ziarah Raudoh"
+   ],
+   [
+    "package_types.record-188.program_arbain",
+    "Tidak"
+   ],
+   [
+    "package_types.record-188.layanan",
+    "1 Bus 3 Petugas, Tenda VIP Mina & Arafah, Layanan Kesehatan, Umroh difasilitasi 3x, Free Badal Haji"
+   ],
+   [
+    "package_types.record-188.price",
+    "17,000"
+   ],
+   [
+    "package_types.record-188.discount_percent",
+    "0"
+   ],
+   [
+    "package_types.record-188.discount_price",
+    "17,000"
+   ],
+   [
+    "package_types.record-189.name",
+    "Sekamar Berdua"
+   ],
+   [
+    "package_types.record-189.dp_amount",
+    "4000"
+   ],
+   [
+    "package_types.record-189.room_option",
+    "2"
+   ],
+   [
+    "package_types.record-189.duration_days",
+    "22-23 Hari"
+   ],
+   [
+    "package_types.record-189.maktab_vip",
+    "VIP Maktab 113"
+   ],
+   [
+    "package_types.record-189.jamarat_distance",
+    "600 mtr"
+   ],
+   [
+    "package_types.record-189.hotel_makkah",
+    "Marwa Rotana / Setaraf (Depan Masjidil Haram)"
+   ],
+   [
+    "package_types.record-189.hotel_madinah",
+    "Al-Aqeeq Hotel / Setaraf (50 m)"
+   ],
+   [
+    "package_types.record-189.hotel_transit",
+    "Hotel Orvana"
+   ],
+   [
+    "package_types.record-189.maskapai",
+    "Saudia Airlines / Qatar / Emirates"
+   ],
+   [
+    "package_types.record-189.transportation",
+    "Bus VIP; Makkah-Madinah by Haramain High Speed Railway"
+   ],
+   [
+    "package_types.record-189.bimbingan",
+    "Manasik Camp 5 Hari, Kajian Rutin 5 Waktu Sholat, Program Tarwiyah, Siroh Nabawiyah, Ziarah Raudoh"
+   ],
+   [
+    "package_types.record-189.program_arbain",
+    "Tidak"
+   ],
+   [
+    "package_types.record-189.layanan",
+    "1 Bus 3 Petugas, Tenda VIP Mina & Arafah, Layanan Kesehatan, Umroh difasilitasi 3x, Free Badal Haji"
+   ],
+   [
+    "package_types.record-189.price",
+    "18,500"
+   ],
+   [
+    "package_types.record-189.discount_percent",
+    "0"
+   ],
+   [
+    "package_types.record-189.discount_price",
+    "18,500"
+   ]
+  ],
+  "labels": [
+   "Package Name*",
+   "Description*",
+   "Category*",
+   "Visible on Website"
+  ]
+ },
+ "43": {
+  "url": "https://elharamainwisata.co.id/secret-admin/haji-packages/43/edit",
+  "fields": [
+   [
+    "service_type",
+    "haji"
+   ],
+   [
+    "name",
+    "Paket Haji Plus Gold Arbain"
+   ],
+   [
+    "slug",
+    "paket-haji-plus-gold-arbain"
+   ],
+   [
+    "description",
+    "Paket Haji Plus Gold Arbain 1448 H (estimasi keberangkatan 2027, kuota resmi Kemenag RI). Termasuk Program Arbain di Madinah (40 kali sholat berjamaah), Marwa Rotana depan Masjidil Haram, Al-Aqeeq Madinah, VIP Maktab 113."
+   ],
+   [
+    "category_id",
+    "2"
+   ],
+   [
+    "package_types.record-120.name",
+    "Sekamar Berempat"
+   ],
+   [
+    "package_types.record-120.dp_amount",
+    "4000"
+   ],
+   [
+    "package_types.record-120.room_option",
+    "4"
+   ],
+   [
+    "package_types.record-120.duration_days",
+    "27-28 Hari"
+   ],
+   [
+    "package_types.record-120.maktab_vip",
+    "VIP Maktab 113"
+   ],
+   [
+    "package_types.record-120.jamarat_distance",
+    "600 mtr"
+   ],
+   [
+    "package_types.record-120.hotel_makkah",
+    "Marwa Rotana / Setaraf (Depan Masjidil Haram)"
+   ],
+   [
+    "package_types.record-120.hotel_madinah",
+    "Al-Aqeeq Hotel / Setaraf (50 m)"
+   ],
+   [
+    "package_types.record-120.hotel_transit",
+    "Hotel Orvana"
+   ],
+   [
+    "package_types.record-120.maskapai",
+    "Saudia Airlines / Qatar / Emirates"
+   ],
+   [
+    "package_types.record-120.transportation",
+    "Bus VIP; Makkah-Madinah by Haramain High Speed Railway"
+   ],
+   [
+    "package_types.record-120.bimbingan",
+    "Manasik Camp 5 Hari, Kajian Rutin 5 Waktu Sholat, Program Tarwiyah, Siroh Nabawiyah, Ziarah Raudoh"
+   ],
+   [
+    "package_types.record-120.program_arbain",
+    "Ya (40 kali sholat berjamaah di Masjid Nabawi)"
+   ],
+   [
+    "package_types.record-120.layanan",
+    "1 Bus 3 Petugas, Tenda VIP Mina & Arafah, Layanan Kesehatan, Umroh difasilitasi 3x, Free Badal Haji"
+   ],
+   [
+    "package_types.record-120.price",
+    "17,000"
+   ],
+   [
+    "package_types.record-120.discount_percent",
+    "0"
+   ],
+   [
+    "package_types.record-120.discount_price",
+    "17,000"
+   ],
+   [
+    "package_types.record-190.name",
+    "Sekamar Bertiga"
+   ],
+   [
+    "package_types.record-190.dp_amount",
+    "4000"
+   ],
+   [
+    "package_types.record-190.room_option",
+    "3"
+   ],
+   [
+    "package_types.record-190.duration_days",
+    "27-28 Hari"
+   ],
+   [
+    "package_types.record-190.maktab_vip",
+    "VIP Maktab 113"
+   ],
+   [
+    "package_types.record-190.jamarat_distance",
+    "600 mtr"
+   ],
+   [
+    "package_types.record-190.hotel_makkah",
+    "Marwa Rotana / Setaraf (Depan Masjidil Haram)"
+   ],
+   [
+    "package_types.record-190.hotel_madinah",
+    "Al-Aqeeq Hotel / Setaraf (50 m)"
+   ],
+   [
+    "package_types.record-190.hotel_transit",
+    "Hotel Orvana"
+   ],
+   [
+    "package_types.record-190.maskapai",
+    "Saudia Airlines / Qatar / Emirates"
+   ],
+   [
+    "package_types.record-190.transportation",
+    "Bus VIP; Makkah-Madinah by Haramain High Speed Railway"
+   ],
+   [
+    "package_types.record-190.bimbingan",
+    "Manasik Camp 5 Hari, Kajian Rutin 5 Waktu Sholat, Program Tarwiyah, Siroh Nabawiyah, Ziarah Raudoh"
+   ],
+   [
+    "package_types.record-190.program_arbain",
+    "Ya (40 kali sholat berjamaah di Masjid Nabawi)"
+   ],
+   [
+    "package_types.record-190.layanan",
+    "1 Bus 3 Petugas, Tenda VIP Mina & Arafah, Layanan Kesehatan, Umroh difasilitasi 3x, Free Badal Haji"
+   ],
+   [
+    "package_types.record-190.price",
+    "18,500"
+   ],
+   [
+    "package_types.record-190.discount_percent",
+    "0"
+   ],
+   [
+    "package_types.record-190.discount_price",
+    "18,500"
+   ],
+   [
+    "package_types.record-191.name",
+    "Sekamar Berdua"
+   ],
+   [
+    "package_types.record-191.dp_amount",
+    "4000"
+   ],
+   [
+    "package_types.record-191.room_option",
+    "2"
+   ],
+   [
+    "package_types.record-191.duration_days",
+    "27-28 Hari"
+   ],
+   [
+    "package_types.record-191.maktab_vip",
+    "VIP Maktab 113"
+   ],
+   [
+    "package_types.record-191.jamarat_distance",
+    "600 mtr"
+   ],
+   [
+    "package_types.record-191.hotel_makkah",
+    "Marwa Rotana / Setaraf (Depan Masjidil Haram)"
+   ],
+   [
+    "package_types.record-191.hotel_madinah",
+    "Al-Aqeeq Hotel / Setaraf (50 m)"
+   ],
+   [
+    "package_types.record-191.hotel_transit",
+    "Hotel Orvana"
+   ],
+   [
+    "package_types.record-191.maskapai",
+    "Saudia Airlines / Qatar / Emirates"
+   ],
+   [
+    "package_types.record-191.transportation",
+    "Bus VIP; Makkah-Madinah by Haramain High Speed Railway"
+   ],
+   [
+    "package_types.record-191.bimbingan",
+    "Manasik Camp 5 Hari, Kajian Rutin 5 Waktu Sholat, Program Tarwiyah, Siroh Nabawiyah, Ziarah Raudoh"
+   ],
+   [
+    "package_types.record-191.program_arbain",
+    "Ya (40 kali sholat berjamaah di Masjid Nabawi)"
+   ],
+   [
+    "package_types.record-191.layanan",
+    "1 Bus 3 Petugas, Tenda VIP Mina & Arafah, Layanan Kesehatan, Umroh difasilitasi 3x, Free Badal Haji"
+   ],
+   [
+    "package_types.record-191.price",
+    "20,000"
+   ],
+   [
+    "package_types.record-191.discount_percent",
+    "0"
+   ],
+   [
+    "package_types.record-191.discount_price",
+    "20,000"
+   ]
+  ],
+  "labels": [
+   "Package Name*",
+   "Description*",
+   "Category*",
+   "Visible on Website"
+  ]
+ },
+ "44": {
+  "url": "https://elharamainwisata.co.id/secret-admin/haji-packages/44/edit",
+  "fields": [
+   [
+    "service_type",
+    ""
+   ],
+   [
+    "name",
+    "Paket Haji Plus Platinum"
+   ],
+   [
+    "slug",
+    ""
+   ],
+   [
+    "description",
+    "Paket Haji Plus Platinum 1448 H (estimasi keberangkatan 2027, kuota resmi Kemenag RI). Fairmont Clock Tower depan Masjidil Haram, Movenpick Madinah, VIP Maktab 111/112 (200-300 m dari Jamarat), Hotel Transit Roots."
+   ],
+   [
+    "category_id",
+    "2"
+   ],
+   [
+    "package_types.record-121.name",
+    "Sekamar Berempat"
+   ],
+   [
+    "package_types.record-121.dp_amount",
+    "4000"
+   ],
+   [
+    "package_types.record-121.room_option",
+    "4"
+   ],
+   [
+    "package_types.record-121.duration_days",
+    "22-23 Hari"
+   ],
+   [
+    "package_types.record-121.maktab_vip",
+    "VIP Maktab 111/112"
+   ],
+   [
+    "package_types.record-121.jamarat_distance",
+    "300 mtr"
+   ],
+   [
+    "package_types.record-121.hotel_makkah",
+    "Fairmont Royal Clock Tower / Setaraf (Depan Masjidil Haram)"
+   ],
+   [
+    "package_types.record-121.hotel_madinah",
+    "Movenpick Hotel / Setaraf (50 m)"
+   ],
+   [
+    "package_types.record-121.hotel_transit",
+    "Roots Hotel"
+   ],
+   [
+    "package_types.record-121.maskapai",
+    "Saudia Airlines / Garuda Indonesia"
+   ],
+   [
+    "package_types.record-121.transportation",
+    "Bus VIP; Makkah-Madinah by Haramain High Speed Railway"
+   ],
+   [
+    "package_types.record-121.bimbingan",
+    "Manasik Camp 5 Hari, Kajian Rutin 5 Waktu Sholat, Program Tarwiyah, Siroh Nabawiyah, Ziarah Raudoh"
+   ],
+   [
+    "package_types.record-121.program_arbain",
+    "Tidak"
+   ],
+   [
+    "package_types.record-121.layanan",
+    "1 Bus 3 Petugas, Tenda VIP Mina & Arafah, Layanan Kesehatan, Umroh difasilitasi 3x, Free Badal Haji"
+   ],
+   [
+    "package_types.record-121.price",
+    "20,000"
+   ],
+   [
+    "package_types.record-121.discount_percent",
+    "0"
+   ],
+   [
+    "package_types.record-121.discount_price",
+    "20,000"
+   ],
+   [
+    "package_types.record-192.name",
+    "Sekamar Bertiga"
+   ],
+   [
+    "package_types.record-192.dp_amount",
+    "4000"
+   ],
+   [
+    "package_types.record-192.room_option",
+    "3"
+   ],
+   [
+    "package_types.record-192.duration_days",
+    "22-23 Hari"
+   ],
+   [
+    "package_types.record-192.maktab_vip",
+    "VIP Maktab 111/112"
+   ],
+   [
+    "package_types.record-192.jamarat_distance",
+    "300 mtr"
+   ],
+   [
+    "package_types.record-192.hotel_makkah",
+    "Fairmont Royal Clock Tower / Setaraf (Depan Masjidil Haram)"
+   ],
+   [
+    "package_types.record-192.hotel_madinah",
+    "Movenpick Hotel / Setaraf (50 m)"
+   ],
+   [
+    "package_types.record-192.hotel_transit",
+    "Roots Hotel"
+   ],
+   [
+    "package_types.record-192.maskapai",
+    "Saudia Airlines / Garuda Indonesia"
+   ],
+   [
+    "package_types.record-192.transportation",
+    "Bus VIP; Makkah-Madinah by Haramain High Speed Railway"
+   ],
+   [
+    "package_types.record-192.bimbingan",
+    "Manasik Camp 5 Hari, Kajian Rutin 5 Waktu Sholat, Program Tarwiyah, Siroh Nabawiyah, Ziarah Raudoh"
+   ],
+   [
+    "package_types.record-192.program_arbain",
+    "Tidak"
+   ],
+   [
+    "package_types.record-192.layanan",
+    "1 Bus 3 Petugas, Tenda VIP Mina & Arafah, Layanan Kesehatan, Umroh difasilitasi 3x, Free Badal Haji"
+   ],
+   [
+    "package_types.record-192.price",
+    "22,000"
+   ],
+   [
+    "package_types.record-192.discount_percent",
+    "0"
+   ],
+   [
+    "package_types.record-192.discount_price",
+    "22,000"
+   ],
+   [
+    "package_types.record-193.name",
+    "Sekamar Berdua"
+   ],
+   [
+    "package_types.record-193.dp_amount",
+    "4000"
+   ],
+   [
+    "package_types.record-193.room_option",
+    "2"
+   ],
+   [
+    "package_types.record-193.duration_days",
+    "22-23 Hari"
+   ],
+   [
+    "package_types.record-193.maktab_vip",
+    "VIP Maktab 111/112"
+   ],
+   [
+    "package_types.record-193.jamarat_distance",
+    "300 mtr"
+   ],
+   [
+    "package_types.record-193.hotel_makkah",
+    "Fairmont Royal Clock Tower / Setaraf (Depan Masjidil Haram)"
+   ],
+   [
+    "package_types.record-193.hotel_madinah",
+    "Movenpick Hotel / Setaraf (50 m)"
+   ],
+   [
+    "package_types.record-193.hotel_transit",
+    "Roots Hotel"
+   ],
+   [
+    "package_types.record-193.maskapai",
+    "Saudia Airlines / Garuda Indonesia"
+   ],
+   [
+    "package_types.record-193.transportation",
+    "Bus VIP; Makkah-Madinah by Haramain High Speed Railway"
+   ],
+   [
+    "package_types.record-193.bimbingan",
+    "Manasik Camp 5 Hari, Kajian Rutin 5 Waktu Sholat, Program Tarwiyah, Siroh Nabawiyah, Ziarah Raudoh"
+   ],
+   [
+    "package_types.record-193.program_arbain",
+    "Tidak"
+   ],
+   [
+    "package_types.record-193.layanan",
+    "1 Bus 3 Petugas, Tenda VIP Mina & Arafah, Layanan Kesehatan, Umroh difasilitasi 3x, Free Badal Haji"
+   ],
+   [
+    "package_types.record-193.price",
+    "24,000"
+   ],
+   [
+    "package_types.record-193.discount_percent",
+    "0"
+   ],
+   [
+    "package_types.record-193.discount_price",
+    "24,000"
+   ]
+  ],
+  "labels": [
+   "Package Name*",
+   "Description*",
+   "Category*",
+   "Visible on Website"
+  ]
+ },
+ "71": {
+  "url": "https://elharamainwisata.co.id/secret-admin/haji-packages/71/edit",
+  "fields": [
+   [
+    "service_type",
+    ""
+   ],
+   [
+    "name",
+    "Paket Haji Plus Silver"
+   ],
+   [
+    "slug",
+    ""
+   ],
+   [
+    "description",
+    "Paket Haji Plus Silver 1448 H (estimasi keberangkatan 2027, kuota resmi Kemenag RI). Anjum Hotel Makkah, Concorde Dar Alkhair Madinah, VIP Maktab 116, Hotel Transit Orvana."
+   ],
+   [
+    "category_id",
+    "2"
+   ],
+   [
+    "package_types.record-194.name",
+    "Sekamar Berempat"
+   ],
+   [
+    "package_types.record-194.dp_amount",
+    "4000"
+   ],
+   [
+    "package_types.record-194.room_option",
+    "4"
+   ],
+   [
+    "package_types.record-194.duration_days",
+    "22-23 Hari"
+   ],
+   [
+    "package_types.record-194.maktab_vip",
+    "VIP Maktab 116"
+   ],
+   [
+    "package_types.record-194.jamarat_distance",
+    "1000 mtr"
+   ],
+   [
+    "package_types.record-194.hotel_makkah",
+    "Anjum Hotel / Setaraf (Jarak 350 m dari Masjidil Haram)"
+   ],
+   [
+    "package_types.record-194.hotel_madinah",
+    "Concorde Dar Alkhair / Setaraf (200 m)"
+   ],
+   [
+    "package_types.record-194.hotel_transit",
+    "Hotel Orvana"
+   ],
+   [
+    "package_types.record-194.maskapai",
+    "Saudia Airlines / Qatar / Emirates"
+   ],
+   [
+    "package_types.record-194.transportation",
+    "Bus VIP; Makkah-Madinah by Haramain High Speed Railway"
+   ],
+   [
+    "package_types.record-194.bimbingan",
+    "Manasik Camp 5 Hari, Kajian Rutin 5 Waktu Sholat, Program Tarwiyah, Siroh Nabawiyah, Ziarah Raudoh"
+   ],
+   [
+    "package_types.record-194.program_arbain",
+    "Tidak"
+   ],
+   [
+    "package_types.record-194.layanan",
+    "1 Bus 3 Petugas, Tenda VIP Mina & Arafah, Layanan Kesehatan, Umroh difasilitasi 3x, Free Badal Haji"
+   ],
+   [
+    "package_types.record-194.price",
+    "12,000"
+   ],
+   [
+    "package_types.record-194.discount_percent",
+    "0"
+   ],
+   [
+    "package_types.record-194.discount_price",
+    "12,000"
+   ],
+   [
+    "package_types.record-195.name",
+    "Sekamar Bertiga"
+   ],
+   [
+    "package_types.record-195.dp_amount",
+    "4000"
+   ],
+   [
+    "package_types.record-195.room_option",
+    "3"
+   ],
+   [
+    "package_types.record-195.duration_days",
+    "22-23 Hari"
+   ],
+   [
+    "package_types.record-195.maktab_vip",
+    "VIP Maktab 116"
+   ],
+   [
+    "package_types.record-195.jamarat_distance",
+    "1000 mtr"
+   ],
+   [
+    "package_types.record-195.hotel_makkah",
+    "Anjum Hotel / Setaraf (Jarak 350 m dari Masjidil Haram)"
+   ],
+   [
+    "package_types.record-195.hotel_madinah",
+    "Concorde Dar Alkhair / Setaraf (200 m)"
+   ],
+   [
+    "package_types.record-195.hotel_transit",
+    "Hotel Orvana"
+   ],
+   [
+    "package_types.record-195.maskapai",
+    "Saudia Airlines / Qatar / Emirates"
+   ],
+   [
+    "package_types.record-195.transportation",
+    "Bus VIP; Makkah-Madinah by Haramain High Speed Railway"
+   ],
+   [
+    "package_types.record-195.bimbingan",
+    "Manasik Camp 5 Hari, Kajian Rutin 5 Waktu Sholat, Program Tarwiyah, Siroh Nabawiyah, Ziarah Raudoh"
+   ],
+   [
+    "package_types.record-195.program_arbain",
+    "Tidak"
+   ],
+   [
+    "package_types.record-195.layanan",
+    "1 Bus 3 Petugas, Tenda VIP Mina & Arafah, Layanan Kesehatan, Umroh difasilitasi 3x, Free Badal Haji"
+   ],
+   [
+    "package_types.record-195.price",
+    "13,500"
+   ],
+   [
+    "package_types.record-195.discount_percent",
+    "0"
+   ],
+   [
+    "package_types.record-195.discount_price",
+    "13,500"
+   ],
+   [
+    "package_types.record-196.name",
+    "Sekamar Berdua"
+   ],
+   [
+    "package_types.record-196.dp_amount",
+    "4000"
+   ],
+   [
+    "package_types.record-196.room_option",
+    "2"
+   ],
+   [
+    "package_types.record-196.duration_days",
+    "22-23 Hari"
+   ],
+   [
+    "package_types.record-196.maktab_vip",
+    "VIP Maktab 116"
+   ],
+   [
+    "package_types.record-196.jamarat_distance",
+    "1000 mtr"
+   ],
+   [
+    "package_types.record-196.hotel_makkah",
+    "Anjum Hotel / Setaraf (Jarak 350 m dari Masjidil Haram)"
+   ],
+   [
+    "package_types.record-196.hotel_madinah",
+    "Concorde Dar Alkhair / Setaraf (200 m)"
+   ],
+   [
+    "package_types.record-196.hotel_transit",
+    "Hotel Orvana"
+   ],
+   [
+    "package_types.record-196.maskapai",
+    "Saudia Airlines / Qatar / Emirates"
+   ],
+   [
+    "package_types.record-196.transportation",
+    "Bus VIP; Makkah-Madinah by Haramain High Speed Railway"
+   ],
+   [
+    "package_types.record-196.bimbingan",
+    "Manasik Camp 5 Hari, Kajian Rutin 5 Waktu Sholat, Program Tarwiyah, Siroh Nabawiyah, Ziarah Raudoh"
+   ],
+   [
+    "package_types.record-196.program_arbain",
+    "Tidak"
+   ],
+   [
+    "package_types.record-196.layanan",
+    "1 Bus 3 Petugas, Tenda VIP Mina & Arafah, Layanan Kesehatan, Umroh difasilitasi 3x, Free Badal Haji"
+   ],
+   [
+    "package_types.record-196.price",
+    "15,000"
+   ],
+   [
+    "package_types.record-196.discount_percent",
+    "0"
+   ],
+   [
+    "package_types.record-196.discount_price",
+    "15,000"
+   ]
+  ],
+  "labels": [
+   "Package Name*",
+   "Description*",
+   "Category*",
+   "Visible on Website"
+  ]
+ }
+}
