@@ -70,3 +70,4 @@ Ada dua set generator header/footer UAE (`build_uae_sites.py`+`deploy_uae.py` da
 
 Tambahan sesi 2026-10-16: **elharamainwisata.co.id** = aplikasi Laravel/Livewire (bukan WP, di Cloudflare), web pendamping Super App. Hanya diaudit;
 masalah utama tombol WA ke nomor contoh 628123456789. Detail: `catatan/2026-10-16-sesi.md`.
+- (17 Okt) co.id: panel admin `/secret-admin` (Filament), skrip `tools/coid_panel/`. 6 paket Januari 2027 dibuat tersembunyi (ID 57–62); detail & sisa tugas: `catatan/2026-10-17-sesi.md`.
