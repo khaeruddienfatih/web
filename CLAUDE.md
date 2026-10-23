@@ -70,3 +70,7 @@ Ada dua set generator header/footer UAE (`build_uae_sites.py`+`deploy_uae.py` da
 
 Tambahan sesi 2026-10-17 (permintaan eksplisit pemilik): bagian "Kenapa Memilih Elharamain Wisata?" & "Pembimbing Ibadah" dihapus dari
 12 halaman umroh elharamainwisata.com, tetap ada di beranda. Layanan Eksklusif di 11 halaman umroh diganti model 3 kolom ikon (seperti 8909); beranda belum. Detail & cara kembalikan: `catatan/2026-10-17-sesi.md`.
+
+Tambahan sesi 2026-10-23 (permintaan eksplisit pemilik): halaman baru **/umroh-syawal/** (page 9935) live di elharamainwisata.com,
+isi di `landing-pages/situs/elharamainwisata-com/umroh-syawal.html` (blok `wp:html`, header/footer UAE). Jangan pakai class `.ehh`
+di HTML halaman (bentrok dengan header UAE 8556). Audit 84 artikel (judul tanpa ":", gambar) selesai. Detail: `catatan/2026-10-23-sesi.md`.

@@ -1,4 +1,4 @@
-# Harga Paket Umroh Elharamain Wisata — Nov 2026 s.d. Feb 2027 (Ramadhan 1448 H)
+# Harga Paket Umroh Elharamain Wisata — Nov 2026 s.d. Mar 2027 (Syawal 1448 H)
 
 Sumber: brosur PDF di `data/brosur/` (dibaca 26/09/2026; November & Ramadhan diperbarui 03/10/2026). Harga per jamaah, dalam Rupiah.
 Quad = sekamar ber-empat, Triple = ber-tiga, Double = ber-dua. Hotel bintang 5 ("atau setaraf") kecuali disebut lain.
@@ -71,6 +71,20 @@ Program 9 atau 12 hari + Thaif + kereta cepat.
 
 Bonus Platinum & Premium: H-1 free menginap di Hotel 101, free Jabal Khandama + golf car Sai, free abaya & jaket eksklusif, free GMC tour night Jabal Uhud.
 Bonus Silver 12D & Gold 12D: free GMC tour night Jabal Uhud.
+
+## Maret 2027 — Syawal 1448 H (brosur PAKET UMROH SYAWAL 2027, update 22/10/2026)
+Halaman live: https://elharamainwisata.com/umroh-syawal/ (page 9935). Semua paket Thaif + kereta cepat Haramain, Madinah Al-Aqeeq.
+
+| Paket | Maskapai | Durasi | Hotel Makkah | Berangkat | Quad | Triple | Double |
+|---|---|---|---|---|---|---|---|
+| Bronze (Makkah First) | Riyadh Air | 10 hari | Anjum | 16 Mar 2027 | 37.500.000 | 40.500.000 | 43.500.000 |
+| Silver | Saudia | 9 hari | Anjum | 11, 14, 22 Mar 2027 | 39.500.000 | 42.500.000 | 45.500.000 |
+| Platinum | Saudia | 9 hari | Marwa Rotana / Movenpick | 10, 13, 14 Mar 2027 | 47.500.000 | 52.000.000 | 56.000.000 |
+| Silver 12 Hari (Idul Fitri di Madinah) | Garuda | 12 hari | Anjum | 8 Mar 2027 | 46.000.000 | 49.000.000 | 53.000.000 |
+| Gold 12 Hari (Idul Fitri di Madinah) | Garuda | 12 hari | Marwa Rotana / Movenpick | 8 Mar 2027 | 57.000.000 | 60.000.000 | 66.000.000 |
+
+Pembatalan: setelah DP Rp1.000.000; 45 hari 10%; 44–31 hari 25%; 30–20 hari 50%; 19–10 hari 70%; 9–0 hari 90%.
+Reschedule paling lambat 40 hari sebelum berangkat. Kurs asumsi maks. Rp17.000/USD.
 
 ## Ketentuan umum (semua brosur)
 - DP pendaftaran Rp 6.000.000/jamaah; pelunasan 35 hari sebelum keberangkatan.
