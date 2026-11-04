@@ -79,3 +79,5 @@ Tambahan sesi 2026-11-04 (permintaan eksplisit pemilik): beranda elharamainwisat
 "Fasilitas Elharamain Wisata" (dari blok sinkron 9995), skrip `tools/beranda_fasilitas.py`; Dokumentasi dipindah ke atas testimoni, lalu urutan section disusun ulang (`tools/beranda_urutan.py`). **Penting:** beranda & halaman
 paket elharamainwisata.com sekarang blok Gutenberg `wp:html` + blok sinkron (9991–9995, 10076), bukan Elementor;
 skrip berbasis `_elementor_data` tidak berpengaruh. Detail: `catatan/2026-11-04-sesi.md`.
+Ikon kartu beranda = ikon 3D orisinal di Media WP (`tools/ikon_3d.py`, peta `wordpress/ikon-3d/media.json`); jangan ambil
+aset situs pesaing. Aset website diunggah ke Media WordPress; Cloudinary hanya untuk Meta Ads.
