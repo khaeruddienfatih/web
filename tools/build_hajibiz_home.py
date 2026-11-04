@@ -264,7 +264,10 @@ def hb(method, path, data=None):
         cmd[1:1] = ['--data-binary', '@-']
     out = subprocess.run(cmd, input=json.dumps(data).encode() if data is not None else None, capture_output=True).stdout.decode()
     body, code = out.rsplit('\n', 1)
-    return int(code), json.loads(body)
+    try:
+        return int(code), json.loads(body)
+    except ValueError:  # respons kosong/terpotong: kembalikan teks mentah, status tetap dipakai
+        return int(code), body[:300]
 
 
 if __name__ == '__main__':

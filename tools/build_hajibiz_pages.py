@@ -153,8 +153,37 @@ def pg_lokasi_kantor():
     return h + ktr + ulasan()
 
 
-GALERI = [f'{U}2026/01/{n}.webp' for n in (  # 14 foto yang benar-benar tampil di galeri asli (238), urutan sama
+GALERI = [f'{U}2026/01/{n}.webp' for n in (  # 14 foto yang tampil di galeri asli (238), urutan sama
     '31', '17', '9-3', '7-3', '8-3', '22', '30-1', '32', '10-2', '21', '5-1', '11-2', '27-1', '24-1')]
+GALERI += [U + x for x in (  # tambahan dari Media haji.biz (foto jamaah Elharamain), dipilih 2026-11-04
+    '2026/09/jamaah-haji-mekkah-2-scaled.webp',
+    '2026/09/jamaah-haji-mekkah-1-scaled.webp',
+    '2026/09/jamaah-haji-doa-bersama-scaled.webp',
+    '2026/09/jamaah-haji-tenda-mina-scaled.webp',
+    '2026/09/jamaah-haji-kabah-malam-scaled.webp',
+    '2026/01/WhatsApp-Image-2025-06-06-at-14.39.47_5481698c-scaled-1.jpg',
+    '2026/01/WhatsApp-Image-2025-06-10-at-22.28.40_399f5fd8-scaled-1.jpg',
+    '2026/01/23.webp',
+    '2026/01/19.webp',
+    '2026/01/27-2.webp',
+    '2026/01/4-5.webp',
+    '2026/01/3-5.webp',
+    '2026/01/2-5.webp',
+    '2026/01/1-5.webp',
+    '2026/01/29.webp',
+    '2026/01/28.webp',
+    '2026/01/27.webp',
+    '2026/01/26.webp',
+    '2026/01/25.webp',
+    '2026/01/24.webp',
+    '2026/01/30.webp',
+    '2026/01/9-3-1.webp',
+    '2026/01/11-4-1.webp',
+    '2026/01/7-8-1.webp',
+    '2026/01/5-8-1.webp',
+    '2026/01/3-5-1.webp',
+    '2026/01/8-2-2.webp',
+    '2026/01/4-5-1.webp')]
 
 
 def pg_galeri_haji():
