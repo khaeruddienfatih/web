@@ -81,3 +81,6 @@ paket elharamainwisata.com sekarang blok Gutenberg `wp:html` + blok sinkron (999
 skrip berbasis `_elementor_data` tidak berpengaruh. Detail: `catatan/2026-11-04-sesi.md`.
 Ikon kartu beranda = ikon 3D orisinal di Media WP (`tools/ikon_3d.py`, peta `wordpress/ikon-3d/media.json`); jangan ambil
 aset situs pesaing. Aset website diunggah ke Media WordPress; Cloudinary hanya untuk Meta Ads.
+
+Tambahan sesi 2026-11-04 (lanjutan): desain ulang halaman Haji Plus gaya beranda = **Draft page 10813** (`tools/build_haji_plus.py`),
+font Martel/Mulish khusus halaman itu; live 8289 masih Elementor, menunggu persetujuan pemilik. Ulasan Google sekarang 7.000+.

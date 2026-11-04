@@ -13,6 +13,11 @@ ALT = {
     'manasik': 'Ikon manasik umroh', 'berangkat': 'Ikon pesawat berangkat', 'beribadah': 'Ikon Ka\'bah, beribadah di Tanah Suci',
     'pulang': 'Ikon kembali ke tanah air', 'umroh-januari': 'Ikon kalender Januari', 'umroh-ramadhan': 'Ikon bulan sabit Ramadhan',
     'itikaf': 'Ikon lentera i\'tikaf', 'umroh-syawal': 'Ikon ketupat Syawal',
+    'jamaah-umroh': 'Ikon jamaah umroh', 'pendaftar-haji': 'Ikon pendaftar haji', 'kantor-cabang': 'Ikon kantor cabang',
+    'berpengalaman': 'Ikon piala pengalaman', 'reputasi': 'Ikon reputasi dan kepuasan jamaah', 'sajadah': 'Ikon sajadah, kenyamanan ibadah',
+    'rating': 'Ikon rating bintang lima', 'tim-solid': 'Ikon tim berpengalaman', 'asatidz': 'Ikon asatidz berilmu',
+    'kajian': 'Ikon kajian dan ilmu', 'medali-silver': 'Medali paket Silver', 'medali-gold': 'Medali paket Gold',
+    'medali-arbain': 'Medali paket Gold Arbain', 'medali-platinum': 'Medali paket Platinum',
 }
 peta_f = os.path.join(DIR, 'media.json')
 peta = json.load(open(peta_f)) if os.path.exists(peta_f) else {}

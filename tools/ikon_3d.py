@@ -9,7 +9,7 @@ OUT = os.path.join(os.path.dirname(__file__), '..', 'wordpress', 'ikon-3d')
 PAL = {  # id: (terang, gelap)
     'b': ('#4FB3FF', '#0B4FB3'), 'g': ('#FFE68A', '#E0A112'), 'gr': ('#6BE8A6', '#0F9157'),
     'r': ('#FFA184', '#E1453B'), 'w': ('#FFFFFF', '#D9E4F5'), 'k': ('#4A4F5A', '#121418'),
-    'n': ('#2C6FD6', '#06306F'),
+    'n': ('#2C6FD6', '#06306F'), 's': ('#F7F9FC', '#98A2B3'), 'p': ('#D6ECFF', '#3B7DD8'),
 }
 
 
@@ -158,7 +158,76 @@ IKON = {
         + ''.join(f'<line x1="{x}" y1="10" x2="{x + 70}" y2="80"/><line x1="{x + 70}" y1="10" x2="{x}" y2="80"/>' for x in (-22, -6, 10, 26)) +
         '</g><path d="M48 18 78 48 48 80 18 48z" fill="none" stroke="#0F9157" stroke-width="2.5"/>'
         '<path d="M48 18 58 28" stroke="#FFE68A" stroke-width="3" stroke-linecap="round"/>'),
+
+    # --- halaman haji (8289) ---
+    'jamaah-umroh': (
+        '<circle cx="24" cy="36" r="9" fill="url(#g)"/><path d="M8 74c0-13 7-20 16-20s16 7 16 20z" fill="url(#g)"/>'
+        '<circle cx="72" cy="36" r="9" fill="url(#gr)"/><path d="M56 74c0-13 7-20 16-20s16 7 16 20z" fill="url(#gr)"/>'
+        '<circle cx="48" cy="30" r="12" fill="url(#b)"/><path d="M26 82c0-17 10-26 22-26s22 9 22 26z" fill="url(#b)"/>'
+        + SHINE.format(d='M41 22a11 11 0 0 1 12-2 12 12 0 0 0-14 8z')),
+    'pendaftar-haji': (
+        '<rect x="18" y="16" width="56" height="66" rx="9" fill="url(#w)"/>'
+        '<rect x="34" y="10" width="24" height="12" rx="5" fill="url(#b)"/>'
+        '<path d="M32 40 46 35l14 5-14 5z" fill="#5A606C"/><path d="M32 40l14 5v18l-14-5z" fill="url(#k)"/><path d="M60 40 46 45v18l14-5z" fill="#1E2127"/>'
+        '<path d="M32 44l14 5v3l-14-5z" fill="url(#g)"/><path d="M60 44 46 49v3l14-5z" fill="#C98F0C"/>'
+        '<rect x="28" y="68" width="30" height="4" rx="2" fill="#0B4FB3" opacity=".3"/>' + chk(70, 70, 13)),
+    'kantor-cabang': (
+        '<path d="M10 70l22-8 32 8 22-8v18l-22 8-32-8-22 8z" fill="url(#gr)" opacity=".9"/>'
+        '<path d="M48 8c-15 0-26 11-26 25 0 19 26 43 26 43s26-24 26-43C74 19 63 8 48 8z" fill="url(#r)"/>'
+        '<rect x="37" y="20" width="22" height="24" rx="3" fill="#fff"/>'
+        + ''.join(f'<rect x="{41 + c * 8}" y="{25 + r * 7}" width="5" height="4" rx="1" fill="#0B4FB3" opacity=".8"/>' for r in range(2) for c in range(2)) +
+        '<rect x="45" y="38" width="6" height="6" fill="url(#g)"/>' + SHINE.format(d='M30 22a24 24 0 0 1 16-11 25 25 0 0 0-20 20z')),
+    'berpengalaman': (
+        '<path d="M28 14h40v18a20 20 0 0 1-40 0z" fill="url(#g)"/>'
+        '<path d="M28 20H16v6a14 14 0 0 0 14 14M68 20h12v6a14 14 0 0 1-14 14" fill="none" stroke="#E0A112" stroke-width="5" stroke-linecap="round"/>'
+        '<rect x="43" y="50" width="10" height="14" fill="#E0A112"/><rect x="30" y="64" width="36" height="14" rx="4" fill="url(#b)"/>'
+        '<path d="M48 20l3 6.2 6.8 1-4.9 4.8 1.2 6.7L48 35.6l-6.1 3.1 1.2-6.7-4.9-4.8 6.8-1z" fill="#fff"/>'
+        + SHINE.format(d='M32 14h10c-4 8-5 16-3 26a20 20 0 0 1-7-8z')),
+    'reputasi': (
+        '<path d="M48 82S14 62 14 38c0-12 9-20 19-20 7 0 12 4 15 9 3-5 8-9 15-9 10 0 19 8 19 20 0 24-34 44-34 44z" fill="url(#r)"/>'
+        + SHINE.format(d='M22 30c2-6 7-9 12-9-5 3-8 8-8 15z') +
+        ''.join(f'<path d="M{x} {y}l2.4 4.8 5.3.8-3.8 3.7.9 5.3-4.8-2.5-4.8 2.5.9-5.3-3.8-3.7 5.3-.8z" fill="url(#g)" stroke="#fff" stroke-width="1.5"/>'
+                for x, y in ((36, 40), (48, 34), (60, 40)))),
+    'sajadah': (
+        '<rect x="22" y="8" width="52" height="76" rx="6" fill="url(#gr)"/>'
+        '<rect x="28" y="14" width="40" height="64" rx="4" fill="none" stroke="#FFE68A" stroke-width="2.5"/>'
+        '<path d="M34 72V40c0-9 6-16 14-20 8 4 14 11 14 20v32z" fill="#0F7A4A"/>'
+        '<path d="M38 72V42c0-7 4-12 10-15 6 3 10 8 10 15v30z" fill="none" stroke="#FFE68A" stroke-width="2"/>'
+        '<circle cx="48" cy="48" r="4" fill="url(#g)"/>'
+        + ''.join(f'<line x1="{x}" y1="84" x2="{x}" y2="90" stroke="#0F9157" stroke-width="2.2" stroke-linecap="round"/>' for x in range(26, 74, 6)) +
+        SHINE.format(d='M22 14a6 6 0 0 1 6-6h12L22 40z')),
+    'rating': (
+        '<rect x="10" y="22" width="76" height="44" rx="14" fill="url(#w)"/><path d="M26 62l-4 16 18-14z" fill="#D9E4F5"/>'
+        + ''.join(f'<path d="M{x} 35.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5-4.7-4.6 6.5-.9z" fill="url(#g)"/>'
+                  for x in (20, 34, 48, 62, 76))),
+    'tim-solid': (
+        '<circle cx="28" cy="34" r="10" fill="url(#gr)"/><path d="M10 74c0-14 8-22 18-22s18 8 18 22z" fill="url(#gr)"/>'
+        '<circle cx="68" cy="34" r="10" fill="url(#g)"/><path d="M50 74c0-14 8-22 18-22s18 8 18 22z" fill="url(#g)"/>'
+        '<circle cx="48" cy="28" r="12" fill="url(#b)"/><path d="M26 80c0-17 10-26 22-26s22 9 22 26z" fill="url(#b)"/>' + chk(70, 70, 12)),
+    'asatidz': (
+        '<path d="M12 62v14c12-4 24-4 36 0 12-4 24-4 36 0V62z" fill="url(#gr)"/>'
+        '<path d="M48 60c-9-5-20-5-30-2v14c10-3 21-3 30 2z" fill="url(#w)"/><path d="M48 60c9-5 20-5 30-2v14c-10-3-21-3-30 2z" fill="#EEF3FB"/>'
+        '<path d="M48 14 86 30 48 46 10 30z" fill="url(#n)"/><path d="M26 37v12c0 5 10 9 22 9s22-4 22-9V37L48 46z" fill="url(#b)"/>'
+        '<path d="M80 32v18" stroke="#E0A112" stroke-width="3"/><circle cx="80" cy="52" r="4" fill="url(#g)"/>'
+        + SHINE.format(d='M48 17 18 30l8 3z')),
+    'kajian': (
+        '<path d="M22 84 60 44M74 84 36 44" stroke="url(#r)" stroke-width="7" stroke-linecap="round"/>'
+        '<path d="M48 54c-10-8-24-9-36-5V24c12-4 26-3 36 5z" fill="url(#w)"/>'
+        '<path d="M48 54c10-8 24-9 36-5V24c-12-4-26-3-36 5z" fill="#EEF3FB"/>'
+        '<path d="M8 22v30c14-4 28-3 40 6 12-9 26-10 40-6V22c-2-1-3-1-4-1v28c-12-3-25-2-36 5-11-7-24-8-36-5V21c-1 0-3 0-4 1z" fill="url(#gr)"/>'
+        + ''.join(f'<path d="M18 {32 + i * 6}c8-2 15-1 22 3M56 {35 + i * 6}c7-4 14-5 22-3" stroke="#0F9157" stroke-opacity=".45" stroke-width="2" fill="none" stroke-linecap="round"/>' for i in range(3))),
 }
+
+for _slug, _pal, _isi in (
+        ('medali-silver', 's', '<path d="M48 26l4.4 9 9.9 1.4-7.2 7 1.7 9.8L48 48.6l-8.8 4.6 1.7-9.8-7.2-7 9.9-1.4z" fill="#fff"/>'),
+        ('medali-gold', 'g', '<path d="M48 26l4.4 9 9.9 1.4-7.2 7 1.7 9.8L48 48.6l-8.8 4.6 1.7-9.8-7.2-7 9.9-1.4z" fill="#fff"/>'),
+        ('medali-arbain', 'g', '<text x="48" y="49" text-anchor="middle" font-family="Poppins,Arial,sans-serif" font-weight="800" font-size="20" fill="#8A5600">40</text>'),
+        ('medali-platinum', 'p', '<path d="M48 26l12 12-12 16-12-16z" fill="#fff"/><path d="M36 38h24M48 26l-4 12 4 16 4-16z" stroke="#3B7DD8" stroke-width="1.5" fill="none" opacity=".6"/>')):
+    IKON[_slug] = (
+        '<path d="M34 54 26 86l11-6 8 9 5-32z" fill="url(#b)"/><path d="M62 54l8 32-11-6-8 9-5-32z" fill="url(#r)"/>'
+        f'<circle cx="48" cy="40" r="27" fill="url(#{_pal})" stroke="#fff" stroke-width="2.5"/>'
+        f'<circle cx="48" cy="40" r="20" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="2"/>' + _isi
+        + SHINE.format(d='M28 32a22 22 0 0 1 24-16 27 27 0 0 0-27 25z'))
 
 # judul kartu di beranda -> slug ikon
 KARTU = {
