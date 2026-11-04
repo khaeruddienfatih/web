@@ -156,6 +156,16 @@ def pembimbing(n=8):
                                            f'<figcaption>{nm}</figcaption></figure>' for s, nm in B.PEMBIMBING[:n]) + '</div>'
 
 
+BANNER = json.load(open(os.path.join(DIR, 'banner-media.json')))  # banner dari haji.biz, diunggah ke Media hajifuroda
+
+
+def banner():
+    """Galeri banner info & promo (pengganti bagian pembimbing, permintaan pemilik 2026-11-04). Banner utuh (contain), klik = ukuran penuh."""
+    return '<div class="hx-ban">' + ''.join(
+        f'<a href="{U}{b["file"]}" target="_blank" rel="noopener" aria-label="{html.escape(b["alt"])}"><img loading="lazy" decoding="async" '
+        f'width="{b["w"]}" height="{b["h"]}" src="{U}{b["file"]}" alt="{html.escape(b["alt"])}"></a>' for b in BANNER) + '</div>'
+
+
 def galeri(fs):
     return '<div class="hx-gal">' + ''.join(f'<figure>{img(f, a)}</figure>' for f, a in fs) + '</div>'
 
@@ -204,7 +214,8 @@ def pg_beranda():
              + f'<p class="hx-note">Biaya keseluruhan diinformasikan setahun sebelum keberangkatan, estimasi naik 4–5% per tahun. Rincian di halaman <a href="{H}/layanan/">Layanan</a>.</p>', 'navy', 'paket')
     trip = sec(head('Rangkaian perjalanan 2–26 Dzulhijjah', 'Gambaran paket 22–23 hari. Gold Arbain menambah waktu di Madinah untuk 40 kali sholat berjamaah.') + perjalanan(), 'soft', 'perjalanan')
     ly = sec(head('Layanan di Tanah Suci', 'Disiapkan agar jamaah tenang, nyaman, dan fokus beribadah.') + layanan_kartu(), '', 'layanan')
-    ust = sec(head('Dibimbing asatidz lulusan Timur Tengah', 'Pembimbing mendampingi jamaah dari manasik sampai pulang ke Tanah Air.') + pembimbing(), 'soft', 'pembimbing')
+    ust = sec(head('Info dan promo Haji Khusus Elharamain', 'Ringkasan program, promo masa tunggu, pembiayaan porsi, itinerary, dan perlengkapan jamaah. Klik banner untuk melihat ukuran penuh.')
+              + banner(), 'soft', 'info-promo')
     gal = sec(head('Jamaah Elharamain di Tanah Suci') + galeri([
         ('2026/10/haji-khusus-jamaah-tawaf-malam-kabah.webp', 'Jamaah haji khusus tawaf malam di Ka\'bah'),
         ('2026/10/rombongan-haji-elharamain-ihram-dalam-tenda.webp', 'Rombongan haji Elharamain berihram di dalam tenda'),
@@ -235,15 +246,14 @@ def pg_profil():
         ('dokumen', 'Dana manfaat transparan', 'Seluruh manfaat setoran dikembalikan sebagai pengurangan biaya paket.')]), 'soft', 'kelebihan')
     bim = sec(head('Program bimbingan ibadah', 'Haji adalah perjalanan perubahan hidup; bimbingan disusun agar jamaah pulang membawa bekal menjadi pribadi yang lebih baik.')
               + kartu_ikon([(i, t, d) for t, d, i in B.BIMBINGAN], 3, 'l'), '', 'bimbingan')
-    ust = sec(head('Pembimbing ibadah kami', 'Asatidz lulusan Timur Tengah yang mendampingi jamaah dari manasik sampai pulang.') + pembimbing(), 'soft', 'pembimbing')
     gal = sec(head('Keluarga besar jamaah Elharamain') + galeri([
         ('2026/10/profil-elharamain-jamaah-haji-zamzam-tower.webp', 'Jamaah haji Elharamain di depan Zamzam Tower'),
         ('2026/10/jamaah-haji-elharamain-pelataran-kabah-malam.webp', 'Jamaah haji Elharamain di pelataran Ka\'bah malam hari'),
         ('2026/10/jamaah-haji-elharamain-berangkat-di-bandara.webp', 'Jamaah haji Elharamain berangkat di bandara'),
         ('2026/10/jamaah-haji-1447h-elharamain-di-tenda.webp', 'Jamaah haji 1447 H Elharamain di tenda'),
         ('2026/10/jamaah-haji-masjid-quba-jakarta-utara.webp', 'Jamaah haji di Masjid Quba'),
-        ('2026/10/haji-plus-keluarga-besar-jamaah-elharamain.webp', 'Keluarga besar jamaah haji plus Elharamain')]), '', 'galeri')
-    return h + tentang + legal + kel + bim + ust + gal + ULASAN + penutup() + schema_org(('Profil', '/profil/'))
+        ('2026/10/haji-plus-keluarga-besar-jamaah-elharamain.webp', 'Keluarga besar jamaah haji plus Elharamain')]), 'soft', 'galeri')
+    return h + tentang + legal + kel + bim + gal + ULASAN.replace(' soft"', '"', 1) + penutup() + schema_org(('Profil', '/profil/'))
 
 
 def pg_layanan():
@@ -294,7 +304,7 @@ HALAMAN = {  # judul halaman WP, fungsi, ringkasan (excerpt), judul SEO, deskrip
                 'Daftar Haji Khusus resmi PIHK Kemenag 846/2020 di Elharamain Wisata. Setoran porsi 4.000 USD, estimasi tunggu 6–10 tahun, dana manfaat, dan Free Badal Haji.'),
     'profil': ('Profil', pg_profil, 'Profil Elharamain Wisata, PIHK resmi SK Kemenag RI No. 846/2020 dengan 6 kantor dan pembimbing lulusan Timur Tengah.',
                'Profil Elharamain Wisata, PIHK Resmi Kemenag 846/2020',
-               'Profil Elharamain Wisata (PT Dhiyaa El Haramain El Mubarakah), PIHK resmi Kemenag 846/2020, 6 kantor, bimbingan ibadah intensif, dan asatidz Timur Tengah.'),
+               'Profil Elharamain Wisata (PT Dhiyaa El Haramain El Mubarakah), PIHK resmi Kemenag 846/2020, 6 kantor, bimbingan ibadah intensif, dan Free Badal Haji.'),
     'layanan': ('Layanan', pg_layanan, 'Layanan dan harga Paket Haji Khusus 1448 H Elharamain Wisata: Silver, Gold, Gold Arbain, Platinum.',
                 'Harga Paket Haji Khusus 1448 H, Silver hingga Platinum | Elharamain Wisata',
                 'Harga Paket Haji Khusus 1448 H mulai 12.000 USD. Silver, Gold, Gold Arbain, Platinum dengan tenda VIP Arafah–Mina, kereta Haramain, dan bimbingan intensif.'),
@@ -394,6 +404,10 @@ width:100vw;margin-left:calc(50% - 50vw);overflow-x:clip;font-family:Poppins,san
 .hx-ust .ph{position:relative;aspect-ratio:322/428;overflow:hidden;background:#fff}
 .hx-ust .ph img{position:absolute;max-width:none;width:179.2%;height:auto;left:-44.1%;top:-11.2%}
 .hx-ust figcaption{padding:14px 12px;text-align:center;font-size:14.5px;font-weight:600}
+.hx-ban{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.hx-ban a{display:flex;align-items:center;justify-content:center;aspect-ratio:3/4;background:#fff;border-radius:var(--r);overflow:hidden;border:1px solid var(--ln);box-shadow:var(--sh);transition:transform .25s,box-shadow .25s}
+.hx-ban a:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(10,46,107,.14)}
+.hx-ban img{width:100%;height:100%;object-fit:contain;background:#fff}
 .hx-gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .hx-gal figure{margin:0;border-radius:var(--r);overflow:hidden}.hx-gal img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 30%;transition:transform .4s}
 .hx-gal figure:hover img{transform:scale(1.04)}
@@ -421,7 +435,7 @@ width:100vw;margin-left:calc(50% - 50vw);overflow-x:clip;font-family:Poppins,san
 .hx-stat{grid-template-columns:repeat(2,1fr)}.hx-stat div:nth-child(2){border-right:0}.hx-stat div:nth-child(-n+2){border-bottom:1px solid var(--ln)}}
 @media(max-width:600px){.hx{font-size:15.5px}.hx-sec{padding:64px 0}.hx-w{padding:0 18px}.hx-head{margin-bottom:32px}.hx-head p{font-size:16px}
 .hx-hero h1{font-size:30px}.hx-hero-t>p{font-size:16px}.hx-hero.sm{padding:130px 0 72px}
-.hx-pks,.hx-grid.g2,.hx-grid.g3,.hx-grid.g4{grid-template-columns:minmax(0,1fr)}.hx-ust,.hx-gal,.hx-trip{grid-template-columns:repeat(2,minmax(0,1fr))}
+.hx-pks,.hx-grid.g2,.hx-grid.g3,.hx-grid.g4{grid-template-columns:minmax(0,1fr)}.hx-ust,.hx-gal,.hx-trip,.hx-ban{grid-template-columns:repeat(2,minmax(0,1fr))}
 .hx-steps{grid-template-columns:minmax(0,1fr);text-align:left}.hx-steps li{display:grid;grid-template-columns:56px 1fr;gap:4px 16px;text-align:left}
 .hx-steps .n{grid-row:span 2}.hx-steps h3{margin:6px 0 0}
 .hx-stat b{font-size:22px}.hx-stat div{padding:18px 10px}.hx-logos{grid-template-columns:minmax(0,1fr)}
