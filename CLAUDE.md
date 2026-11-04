@@ -74,3 +74,8 @@ Tambahan sesi 2026-10-17 (permintaan eksplisit pemilik): bagian "Kenapa Memilih 
 Tambahan sesi 2026-10-23 (permintaan eksplisit pemilik): halaman baru **/umroh-syawal/** (page 9935) live di elharamainwisata.com,
 isi di `landing-pages/situs/elharamainwisata-com/umroh-syawal.html` (blok `wp:html`, header/footer UAE). Jangan pakai class `.ehh`
 di HTML halaman (bentrok dengan header UAE 8556). Audit 84 artikel (judul tanpa ":", gambar) selesai. Detail: `catatan/2026-10-23-sesi.md`.
+
+Tambahan sesi 2026-11-04 (permintaan eksplisit pemilik): beranda elharamainwisata.com, bagian Pembimbing diganti slider
+"Fasilitas Elharamain Wisata" (dari blok sinkron 9995), skrip `tools/beranda_fasilitas.py`. **Penting:** beranda & halaman
+paket elharamainwisata.com sekarang blok Gutenberg `wp:html` + blok sinkron (9991–9995, 10076), bukan Elementor;
+skrip berbasis `_elementor_data` tidak berpengaruh. Detail: `catatan/2026-11-04-sesi.md`.
