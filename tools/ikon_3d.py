@@ -216,6 +216,27 @@ IKON = {
         '<path d="M48 54c10-8 24-9 36-5V24c-12-4-26-3-36 5z" fill="#EEF3FB"/>'
         '<path d="M8 22v30c14-4 28-3 40 6 12-9 26-10 40-6V22c-2-1-3-1-4-1v28c-12-3-25-2-36 5-11-7-24-8-36-5V21c-1 0-3 0-4 1z" fill="url(#gr)"/>'
         + ''.join(f'<path d="M18 {32 + i * 6}c8-2 15-1 22 3M56 {35 + i * 6}c7-4 14-5 22-3" stroke="#0F9157" stroke-opacity=".45" stroke-width="2" fill="none" stroke-linecap="round"/>' for i in range(3))),
+
+    # --- tambahan hajifuroda 2026-11-04 ---
+    'tenda-vip': (
+        '<path d="M48 12 84 76H12z" fill="url(#w)"/><path d="M48 12 84 76H48z" fill="#D3DFF2"/>'
+        '<path d="M48 44 61 76H35z" fill="url(#b)"/>'
+        '<path d="M30 52 48 18M66 52 48 18" stroke="#4FB3FF" stroke-width="3" stroke-linecap="round"/>'
+        '<path d="M48 12V3" stroke="#55627a" stroke-width="3" stroke-linecap="round"/><path d="M49 3h15l-4 5 4 5H49z" fill="url(#g)"/>'
+        '<rect x="10" y="74" width="76" height="6" rx="3" fill="#0B4FB3" opacity=".35"/>'),
+    'bus-vip': (
+        '<rect x="10" y="24" width="76" height="44" rx="12" fill="url(#b)"/>'
+        '<rect x="16" y="31" width="50" height="16" rx="4" fill="#fff" opacity=".92"/><rect x="70" y="31" width="10" height="24" rx="3" fill="#fff" opacity=".92"/>'
+        '<path d="M32 31v16M48 31v16" stroke="#4FB3FF" stroke-width="2"/>'
+        '<rect x="14" y="54" width="10" height="5" rx="2.5" fill="url(#g)"/>'
+        '<circle cx="28" cy="70" r="8" fill="#1E2127"/><circle cx="28" cy="70" r="3.5" fill="#9AA3B2"/>'
+        '<circle cx="68" cy="70" r="8" fill="#1E2127"/><circle cx="68" cy="70" r="3.5" fill="#9AA3B2"/>'
+        + SHINE.format(d='M22 24h52a12 12 0 0 1 10 6H12a12 12 0 0 1 10-6z')),
+    'medis': (
+        '<rect x="36" y="16" width="24" height="16" rx="6" fill="none" stroke="#55627a" stroke-width="5"/>'
+        '<rect x="14" y="28" width="68" height="50" rx="12" fill="url(#w)"/>'
+        '<rect x="42" y="36" width="12" height="34" rx="3" fill="url(#r)"/><rect x="31" y="47" width="34" height="12" rx="3" fill="url(#r)"/>'
+        + SHINE.format(d='M26 28h44a12 12 0 0 1 11 7H15a12 12 0 0 1 11-7z')),
 }
 
 for _slug, _pal, _isi in (

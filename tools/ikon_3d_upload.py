@@ -18,6 +18,7 @@ ALT = {
     'rating': 'Ikon rating bintang lima', 'tim-solid': 'Ikon tim berpengalaman', 'asatidz': 'Ikon asatidz berilmu',
     'kajian': 'Ikon kajian dan ilmu', 'medali-silver': 'Medali paket Silver', 'medali-gold': 'Medali paket Gold',
     'medali-arbain': 'Medali paket Gold Arbain', 'medali-platinum': 'Medali paket Platinum',
+    'tenda-vip': 'Ikon tenda VIP Arafah Mina', 'bus-vip': 'Ikon bus VIP jamaah', 'medis': 'Ikon pendamping kesehatan',
 }
 peta_f = os.path.join(DIR, 'media.json')
 peta = json.load(open(peta_f)) if os.path.exists(peta_f) else {}

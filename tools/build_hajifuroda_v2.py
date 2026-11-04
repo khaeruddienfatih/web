@@ -20,6 +20,12 @@ U, H, P, wa, hf, META = B.U, B.H, B.P, B.wa, B.hf, B.META
 DIR = B.DIR
 LOGO = json.load(open(os.path.join(DIR, 'logo-media.json')))
 WA_DAFTAR = B.WA_DAFTAR
+M3 = json.load(open(os.path.join(DIR, '..', '..', '..', 'wordpress', 'ikon-3d', 'media-hajifuroda.json')))  # ikon 3D di Media hajifuroda
+
+
+def ik3(slug, cls=''):
+    """Ikon 3D seperti elharamainwisata.com (permintaan pemilik 2026-11-04 untuk beranda)."""
+    return f'<span class="hx-i3 {cls}"><img src="{M3[slug]["url"]}" alt="" width="64" height="64" loading="lazy" decoding="async"></span>'
 
 
 def ik(n, cls=''):
@@ -72,8 +78,9 @@ def schema_org(crumb=None):
 
 # ---------------- komponen ----------------
 def trust():
-    st = [('4.000 USD', 'setoran awal nomor porsi'), ('6–10 tahun', 'estimasi masa tunggu'), ('7.000+', 'ulasan Google bintang 5'), ('6 kantor', 'Jabodetabek &amp; Bandung')]
-    s = ''.join(f'<div><b>{a}</b><span>{b}</span></div>' for a, b in st)
+    st = [('booking-dp', '4.000 USD', 'setoran awal nomor porsi'), ('cicilan-ringan', '6–10 tahun', 'estimasi masa tunggu'),
+          ('rating', '7.000+', 'ulasan Google bintang 5'), ('kantor-cabang', '6 kantor', 'Jabodetabek &amp; Bandung')]
+    s = ''.join(f'<div>{ik3(i, "st")}<b>{a}</b><span>{b}</span></div>' for i, a, b in st)
     return f'<div class="hx-trust"><div class="hx-w"><div class="hx-stat">{s}</div></div></div>'
 
 
@@ -97,6 +104,11 @@ def ringkasan():
     return (f'<aside class="hx-sum" aria-label="Ringkasan biaya"><h2>Ringkasan setoran</h2><ul>{r}</ul>'
             '<p>Pelunasan dikurangi DP dan dana manfaat. Estimasi keberangkatan 2027, naik ±4–5% per tahun.</p>'
             + btn('Minta simulasi biaya', B.WA_SIMULASI) + '</aside>')
+
+
+def kartu_ikon3(items, kolom=4):
+    s = ''.join(f'<article class="hx-card c">{ik3(i)}<h3>{t}</h3><p>{d}</p></article>' for i, t, d in items)
+    return f'<div class="hx-grid g{kolom}">{s}</div>'
 
 
 def kartu_ikon(items, kolom=3, rata='c'):
@@ -130,7 +142,8 @@ def kartu_paket(p, unggul=False):
            'Tenda VIP Arafah–Mina'] + (['Program Arbain 40 waktu'] if p['arb'] else [])
     li = ''.join(f'<li>{ik("cek", "xs")}<span>{x}</span></li>' for x in fit)
     lbl = '<span class="hx-pop">Paling banyak dipilih</span>' if unggul else ''
-    return (f'<article class="hx-pk{" pop" if unggul else ""}">{lbl}<h3>Paket {p["n"]}</h3><p class="hx-pk-s">Haji Khusus 1448 H · estimasi 2027</p>'
+    medali = {'Silver': 'medali-silver', 'Gold': 'medali-gold', 'Gold Arbain': 'medali-arbain', 'Platinum': 'medali-platinum'}[p['n']]
+    return (f'<article class="hx-pk{" pop" if unggul else ""}">{lbl}{ik3(medali, "md")}<h3>Paket {p["n"]}</h3><p class="hx-pk-s">Haji Khusus 1448 H · estimasi 2027</p>'
             f'<div class="hx-pk-m"><small>mulai</small><b>{h4}</b><small>USD / jamaah</small></div>'
             f'<div class="hx-pk-r"><span>sekamar 3 <b>{h3}</b></span><span>sekamar 2 <b>{h2}</b></span></div><ul>{li}</ul>'
             + btn(f'Tanya Paket {p["n"]}', wa(f"Assalamu'alaikum, saya ingin tanya Paket Haji Khusus {p['n']} 1448 H."), 'wa') + '</article>')
@@ -144,9 +157,13 @@ def perjalanan():
     return '<ol class="hx-trip">' + ''.join(f'<li>{ik(i, "sm")}<b>{d} Dzulhijjah</b><h3>{t}</h3><p>{x}</p></li>' for d, t, x, i in B.PERJALANAN) + '</ol>'
 
 
-def layanan_kartu():
+IK3_LAYANAN = {'tenda': 'tenda-vip', 'bus': 'bus-vip', 'medis': 'medis', 'hati': 'reputasi'}
+
+
+def layanan_kartu(tiga_d=False):
+    ikon = (lambda i: ik3(IK3_LAYANAN[i], 'sm')) if tiga_d else (lambda i: ik(i, 'sm'))
     return '<div class="hx-grid g4">' + ''.join(
-        f'<article class="hx-fc"><figure>{img(f, t)}</figure><div class="hx-fc-b"><h3>{ik(i, "sm")}{t}</h3><p>{d}</p></div></article>'
+        f'<article class="hx-fc"><figure>{img(f, t)}</figure><div class="hx-fc-b"><h3>{ikon(i)}{t}</h3><p>{d}</p></div></article>'
         for t, d, i, f in B.LAYANAN) + '</div>'
 
 
@@ -203,17 +220,17 @@ def pg_beranda():
              '2026/10/daftar-haji-khusus-rombongan-masjidil-haram.webp', ringkasan())
     legal = sec(logos(), 'thin', 'legalitas')
     beda = sec(head('Beda Haji Khusus dan Haji Reguler', 'Sama-sama memakai kuota haji nasional resmi, tetapi antrean, masa tunggu, dan pendampingannya berbeda.') + tabel_banding(), '', 'beda')
-    hak = sec(head('Hak jamaah selama masa tunggu', 'Menunggu giliran berangkat tidak berarti menunggu tanpa kepastian.') + kartu_ikon([
-        ('koin', 'Dana manfaat transparan', 'Setoran dikelola BPKH secara syariah, bertumbuh ±120 USD per tahun, dan mengurangi harga paket. Bisa dicek di aplikasi BPKH.'),
-        ('hadiah', 'Voucher umroh Rp 5 juta', 'Bonus voucher umroh Elharamain Wisata selama masa tunggu. Syarat dan ketentuan berlaku.'),
-        ('hati', 'Free Badal Haji', 'Bila calon jamaah wafat sebelum berangkat, InsyaAllah dibadalkan tanpa biaya. Untuk pendaftar 1448 H, S&amp;K berlaku.'),
-        ('buku', 'Kajian bulanan', 'Kajian online rutin sebulan sekali agar bekal ilmu dan semangat terjaga.')], 4), 'soft', 'masa-tunggu')
+    hak = sec(head('Hak jamaah selama masa tunggu', 'Menunggu giliran berangkat tidak berarti menunggu tanpa kepastian.') + kartu_ikon3([
+        ('rincian-harga', 'Dana manfaat transparan', 'Setoran dikelola BPKH secara syariah, bertumbuh ±120 USD per tahun, dan mengurangi harga paket. Bisa dicek di aplikasi BPKH.'),
+        ('booking-seat', 'Voucher umroh Rp 5 juta', 'Bonus voucher umroh Elharamain Wisata selama masa tunggu. Syarat dan ketentuan berlaku.'),
+        ('izin-resmi', 'Free Badal Haji', 'Bila calon jamaah wafat sebelum berangkat, InsyaAllah dibadalkan tanpa biaya. Untuk pendaftar 1448 H, S&amp;K berlaku.'),
+        ('kajian', 'Kajian bulanan', 'Kajian online rutin sebulan sekali agar bekal ilmu dan semangat terjaga.')], 4), 'soft', 'masa-tunggu')
     langkah = sec(head('Enam langkah daftar Haji Khusus', 'Dari konsultasi pertama sampai berangkat ke Tanah Suci, semua dibantu tim kami.') + stepper()
                   + f'<div class="hx-ctas c">{btn("Mulai konsultasi")}</div>', '', 'langkah')
     pk = sec(head('Paket Haji Khusus 1448 H', 'Estimasi keberangkatan 2027. Harga per jamaah dalam USD; sekamar berempat, bertiga, atau berdua.') + paket_grid()
              + f'<p class="hx-note">Biaya keseluruhan diinformasikan setahun sebelum keberangkatan, estimasi naik 4–5% per tahun. Rincian di halaman <a href="{H}/layanan/">Layanan</a>.</p>', 'navy', 'paket')
     trip = sec(head('Rangkaian perjalanan 2–26 Dzulhijjah', 'Gambaran paket 22–23 hari. Gold Arbain menambah waktu di Madinah untuk 40 kali sholat berjamaah.') + perjalanan(), 'soft', 'perjalanan')
-    ly = sec(head('Layanan di Tanah Suci', 'Disiapkan agar jamaah tenang, nyaman, dan fokus beribadah.') + layanan_kartu(), '', 'layanan')
+    ly = sec(head('Layanan di Tanah Suci', 'Disiapkan agar jamaah tenang, nyaman, dan fokus beribadah.') + layanan_kartu(True), '', 'layanan')
     ust = sec(head('Info dan promo Haji Khusus Elharamain', 'Ringkasan program, promo masa tunggu, pembiayaan porsi, itinerary, dan perlengkapan jamaah. Klik banner untuk melihat ukuran penuh.')
               + banner(), 'soft', 'info-promo')
     gal = sec(head('Jamaah Elharamain di Tanah Suci') + galeri([
@@ -229,13 +246,13 @@ def pg_beranda():
 
 def pg_profil():
     h = hero('Profil Elharamain Wisata, penyelenggara Haji Khusus resmi', 'PT Dhiyaa El Haramain El Mubarakah mendampingi jamaah Haji Khusus dan umroh dari 6 kantor di Jabodetabek dan Bandung.',
-             '2026/10/profil-elharamain-keluarga-besar-jamaah-haji-1447h.webp', kecil=True, crumb='Profil',
+             '2026/10/haji-plus-rombongan-elharamain-malam-makkah.webp', kecil=True, crumb='Profil',
              ctas=btn('Konsultasi gratis') + f'<a class="hx-btn ghost" href="{H}/layanan/"><span>Lihat layanan</span></a>')
     tentang = sec('<div class="hx-split"><div>' + head('Melayani tamu Allah dengan amanah', kiri=True)
                   + '<p class="hx-p">Elharamain Wisata adalah nama dagang PT Dhiyaa El Haramain El Mubarakah, Penyelenggara Ibadah Haji Khusus (PIHK) berizin SK Kemenag RI '
                   'No. 846/2020 dan penyelenggara perjalanan ibadah umrah berizin SK No. 63/2020.</p><p class="hx-p">Kami percaya perjalanan haji adalah momen istimewa yang layak '
                   'dipersiapkan secara istimewa. Jamaah didampingi sejak pendaftaran, selama masa tunggu, di Tanah Suci, sampai kembali ke rumah.</p></div>'
-                  f'<figure class="hx-ph">{img("2026/10/kantor-pusat-elharamain-wisata-bekasi.webp", "Kantor pusat Elharamain Wisata di Bekasi")}</figure></div>', '', 'tentang')
+                  f'<figure class="hx-ph">{img("2026/10/haji-plus-rombongan-elharamain-spanduk-1447h.webp", "Rombongan jamaah haji Elharamain Wisata 1447 H", w=1280, h=720)}</figure></div>', '', 'tentang')
     legal = sec(logos(), 'thin', 'legalitas')
     kel = sec(head('Kelebihan Elharamain Wisata') + kartu_ikon([
         ('perisai', 'PIHK resmi', 'Terdaftar di Kementerian sehingga keberangkatan jamaah sesuai regulasi.'),
@@ -247,7 +264,7 @@ def pg_profil():
     bim = sec(head('Program bimbingan ibadah', 'Haji adalah perjalanan perubahan hidup; bimbingan disusun agar jamaah pulang membawa bekal menjadi pribadi yang lebih baik.')
               + kartu_ikon([(i, t, d) for t, d, i in B.BIMBINGAN], 3, 'l'), '', 'bimbingan')
     gal = sec(head('Keluarga besar jamaah Elharamain') + galeri([
-        ('2026/10/profil-elharamain-jamaah-haji-zamzam-tower.webp', 'Jamaah haji Elharamain di depan Zamzam Tower'),
+        ('2026/10/daftar-haji-khusus-jamaah-elharamain-manasik.webp', 'Keluarga besar jamaah haji Elharamain saat manasik'),
         ('2026/10/jamaah-haji-elharamain-pelataran-kabah-malam.webp', 'Jamaah haji Elharamain di pelataran Ka\'bah malam hari'),
         ('2026/10/jamaah-haji-elharamain-berangkat-di-bandara.webp', 'Jamaah haji Elharamain berangkat di bandara'),
         ('2026/10/jamaah-haji-1447h-elharamain-di-tenda.webp', 'Jamaah haji 1447 H Elharamain di tenda'),
@@ -282,14 +299,14 @@ def pg_layanan():
 
 def pg_kontak():
     h = hero('Kontak Elharamain Wisata untuk konsultasi Haji Khusus', 'Tanyakan paket, nomor porsi, atau dokumen haji lewat WhatsApp, atau datang langsung ke salah satu dari enam kantor kami.',
-             '2026/10/kontak-elharamain-jamaah-depan-kabah-malam.webp', kecil=True, crumb='Kontak',
+             '2026/10/jamaah-haji-elharamain-pelataran-kabah-malam.webp', kecil=True, crumb='Kontak',
              ctas=btn('Chat WhatsApp kantor pusat') + '<a class="hx-btn ghost" href="#kantor"><span>Alamat kantor</span></a>')
     ktr = sec(head('Enam kantor pelayanan', 'Semua kantor melayani konsultasi dan pendaftaran Haji Khusus maupun umroh.') + kantor(), '', 'kantor')
     siap = sec('<div class="hx-split"><div>' + head('Siapkan ini agar konsultasi lebih cepat', kiri=True) + '<ul class="hx-chk">' + ''.join(
         f'<li>{ik("cek", "xs")}<span>{t}</span></li>' for t in ['Scan atau fotokopi KTP dan Kartu Keluarga', 'Akta kelahiran atau buku nikah suami-istri',
                                                                'Pas foto 4x6, cetak atau digital', 'Rencana paket dan tipe kamar bila sudah ada', 'Setoran awal nomor porsi 4.000 USD per jamaah'])
         + '</ul><p class="hx-warn">Pembayaran hanya sah ke rekening atas nama <b>PT Dhiyaa El Haramain El Mubarakah</b>. Jangan transfer ke rekening pribadi siapa pun.</p></div>'
-        f'<figure class="hx-ph">{img("2026/10/kantor-pusat-elharamain-wisata-bekasi.webp", "Kantor pusat Elharamain Wisata Bekasi")}</figure></div>', 'soft', 'dokumen')
+        f'<figure class="hx-ph pt">{img("2026/10/kantor-pusat-elharamain-wisata-bekasi.webp", "Kantor pusat Elharamain Wisata di Bekasi", w=377, h=880)}<figcaption>Kantor pusat Bekasi</figcaption></figure></div>', 'soft', 'dokumen')
     tanya = sec(head('Pertanyaan seputar konsultasi') + faq([
         ('Apakah konsultasi dikenakan biaya?', 'Tidak. Konsultasi lewat WhatsApp maupun di kantor gratis dan tanpa kewajiban mendaftar.'),
         ('Bisakah mendaftar tanpa datang ke kantor?', 'Bisa. Dokumen dapat dikirim lewat WhatsApp; tim kami memandu proses sampai nomor porsi terbit.'),
@@ -335,6 +352,7 @@ width:100vw;margin-left:calc(50% - 50vw);overflow-x:clip;font-family:Poppins,san
 .hx-ic svg{width:26px;height:26px;fill:#fff}
 .hx-ic.sm{width:38px;height:38px;box-shadow:0 6px 12px rgba(0,74,173,.22)}.hx-ic.sm svg{width:18px;height:18px}
 .hx-ic.xs{width:22px;height:22px;box-shadow:none}.hx-ic.xs svg{width:13px;height:13px}
+.hx-i3{flex:none;display:inline-grid;place-items:center;width:84px;height:84px;border-radius:24px;background:#eaf2ff}.hx-i3 img{width:68px;height:68px;filter:drop-shadow(0 6px 10px rgba(6,42,102,.18))}.hx-card.c .hx-i3{margin:0 auto}.hx-i3.sm{width:46px;height:46px;border-radius:14px}.hx-i3.sm img{width:38px;height:38px}.hx-i3.st{width:58px;height:58px;border-radius:18px;margin:0 auto 10px}.hx-i3.st img{width:46px;height:46px}.hx-i3.md{width:64px;height:64px;background:none;margin:-6px 0 6px -6px}.hx-i3.md img{width:64px;height:64px}
 .hx-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font:600 15.5px/1 Poppins,sans-serif;text-decoration:none!important;border:2px solid transparent;transition:transform .2s,box-shadow .2s,background .2s;white-space:nowrap}
 .hx-btn svg{width:19px;height:19px;fill:currentColor}.hx-btn:hover{transform:translateY(-2px)}
 .hx-btn.wa{background:#1fa855;color:#fff!important;box-shadow:0 10px 24px rgba(31,168,85,.28)}.hx-btn.wa:hover{background:#188f47}
@@ -395,7 +413,7 @@ width:100vw;margin-left:calc(50% - 50vw);overflow-x:clip;font-family:Poppins,san
 .hx-trip b{display:block;margin-top:14px;font-size:13px;color:var(--l);font-weight:600}
 .hx-trip h3{font-size:16.5px;font-weight:700;margin-top:2px}.hx-trip p{font-size:13.5px;color:var(--mu);margin-top:4px;line-height:1.55}
 .hx-fc{background:#fff;border-radius:var(--r);overflow:hidden;border:1px solid var(--ln);box-shadow:var(--sh);display:flex;flex-direction:column}
-.hx-fc figure{margin:0}.hx-fc img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 25%}
+.hx-fc figure{margin:0}.hx-fc img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center 40%}
 .hx-fc-b{padding:22px 22px 26px}.hx-fc h3{display:flex;align-items:center;gap:12px;font-size:17px;font-weight:700;line-height:1.3}
 .hx-fc p{font-size:14.5px;color:var(--mu);margin-top:10px}
 .hx-gap{height:28px}
@@ -409,7 +427,7 @@ width:100vw;margin-left:calc(50% - 50vw);overflow-x:clip;font-family:Poppins,san
 .hx-ban a:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(10,46,107,.14)}
 .hx-ban img{width:100%;height:100%;object-fit:contain;background:#fff}
 .hx-gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.hx-gal figure{margin:0;border-radius:var(--r);overflow:hidden}.hx-gal img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 30%;transition:transform .4s}
+.hx-gal figure{margin:0;border-radius:var(--r);overflow:hidden}.hx-gal img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .4s}
 .hx-gal figure:hover img{transform:scale(1.04)}
 .hx-faq{max-width:860px;margin:0 auto;display:grid;gap:12px}
 .hx-q{background:#fff;border:1px solid var(--ln);border-radius:14px;padding:0 24px;box-shadow:0 6px 16px rgba(10,46,107,.04)}
@@ -420,13 +438,13 @@ width:100vw;margin-left:calc(50% - 50vw);overflow-x:clip;font-family:Poppins,san
 .hx-q[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
 .hx-q p{padding:0 0 20px;color:var(--mu);font-size:15.5px}
 .hx-split{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center}
-.hx-ph{margin:0}.hx-ph img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px;box-shadow:var(--sh)}
+.hx-ph{margin:0}.hx-ph img{width:100%;height:auto;border-radius:20px;box-shadow:var(--sh)}.hx-ph.pt{max-width:300px;margin:0 auto;text-align:center}.hx-ph.pt figcaption{margin-top:12px;font-size:14px;color:var(--mu)}
 .hx-chk{display:grid;gap:12px;margin:8px 0 22px}.hx-chk li{display:flex;gap:12px;align-items:center}
 .hx-warn{background:#eef5ff;border-radius:12px;padding:16px 20px;font-size:14.5px;color:var(--n)}
 .hx-ti{max-width:1100px;margin:0 auto}
 .hx-end{background:var(--n);padding:96px 0;color:#fff}
 .hx-end-g{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:56px;align-items:center}
-.hx-end figure{margin:0}.hx-end img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px}
+.hx-end figure{margin:0}.hx-end img{width:100%;height:auto;border-radius:20px}
 .hx-end h2{color:#fff!important;font-size:clamp(28px,3.2vw,40px);font-weight:700;line-height:1.2}
 .hx-end p{color:rgba(255,255,255,.82);margin-top:14px;font-size:17px}.hx-end .hx-end-n{font-size:13.5px;margin-top:22px;color:rgba(255,255,255,.62)}
 @media(max-width:1100px){.hx-pks,.hx-grid.g4,.hx-ust{grid-template-columns:repeat(2,minmax(0,1fr))}.hx-trip,.hx-steps{grid-template-columns:repeat(3,minmax(0,1fr))}
