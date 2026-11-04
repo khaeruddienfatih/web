@@ -83,4 +83,4 @@ Ikon kartu beranda = ikon 3D orisinal di Media WP (`tools/ikon_3d.py`, peta `wor
 aset situs pesaing. Aset website diunggah ke Media WordPress; Cloudinary hanya untuk Meta Ads.
 
 Tambahan sesi 2026-11-04 (lanjutan): desain ulang halaman Haji Plus gaya beranda = **Draft page 10813** (`tools/build_haji_plus.py`),
-font Martel/Mulish khusus halaman itu; live 8289 masih Elementor, menunggu persetujuan pemilik. Ulasan Google sekarang 7.000+.
+font Martel/Mulish khusus halaman itu; **sudah LIVE di 8289** (bukan Elementor lagi; ubah lewat build_haji_plus.py lalu pasang_haji_plus.py). Ulasan Google sekarang 7.000+.
