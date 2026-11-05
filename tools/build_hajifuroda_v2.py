@@ -306,7 +306,7 @@ def pg_kontak():
         f'<li>{ik("cek", "xs")}<span>{t}</span></li>' for t in ['Scan atau fotokopi KTP dan Kartu Keluarga', 'Akta kelahiran atau buku nikah suami-istri',
                                                                'Pas foto 4x6, cetak atau digital', 'Rencana paket dan tipe kamar bila sudah ada', 'Setoran awal nomor porsi 4.000 USD per jamaah'])
         + '</ul><p class="hx-warn">Pembayaran hanya sah ke rekening atas nama <b>PT Dhiyaa El Haramain El Mubarakah</b>. Jangan transfer ke rekening pribadi siapa pun.</p></div>'
-        f'<figure class="hx-ph pt">{img("2026/10/kantor-pusat-elharamain-wisata-bekasi.webp", "Kantor pusat Elharamain Wisata di Bekasi", w=377, h=880)}<figcaption>Kantor pusat Bekasi</figcaption></figure></div>', 'soft', 'dokumen')
+        f'<figure class="hx-ph">{img("2026/11/kantor-elharamain-wisata-meja-layanan-jamaah.webp", "Meja layanan jamaah di kantor Elharamain Wisata", w=1600, h=900)}</figure></div>', 'soft', 'dokumen')
     tanya = sec(head('Pertanyaan seputar konsultasi') + faq([
         ('Apakah konsultasi dikenakan biaya?', 'Tidak. Konsultasi lewat WhatsApp maupun di kantor gratis dan tanpa kewajiban mendaftar.'),
         ('Bisakah mendaftar tanpa datang ke kantor?', 'Bisa. Dokumen dapat dikirim lewat WhatsApp; tim kami memandu proses sampai nomor porsi terbit.'),
